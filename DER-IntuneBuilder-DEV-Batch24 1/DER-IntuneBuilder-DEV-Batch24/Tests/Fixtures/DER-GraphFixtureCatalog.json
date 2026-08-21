@@ -1,0 +1,709 @@
+{
+  "schemaVersion": "1.0",
+  "catalogVersion": "1.0.0",
+  "generatedForBaseline": "1.0.0",
+  "sanitized": true,
+  "syntheticIdNamespace": "00000000-0000-4000-8000-000000000000",
+  "notes": "Fixtures are synthetic and contain no tenant-derived identifiers, UPNs, secrets, tokens, or customer configuration. example.invalid and RFC 5737 documentation IP space are used where text/network data is required.",
+  "workloads": [
+    {
+      "module": "Groups",
+      "moduleFile": "Workloads/DER.Groups.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "mocked-flow",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^groups(?:\\?|/)",
+          "responseFixture": "Graph/groups.customerCollision.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "v1.0",
+          "routePattern": "^groups$",
+          "responseFixture": "Graph/groups.created.json"
+        }
+      ]
+    },
+    {
+      "module": "EntraDevice",
+      "moduleFile": "Workloads/DER.EntraDevice.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "mocked-flow",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/deviceRegistrationPolicy$",
+          "responseFixture": "Graph/deviceRegistrationPolicy.current.json"
+        },
+        {
+          "method": "PUT",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/deviceRegistrationPolicy$",
+          "responseFixture": "Graph/deviceRegistrationPolicy.current.json"
+        }
+      ]
+    },
+    {
+      "module": "Enrollment",
+      "moduleFile": "Workloads/DER.Enrollment.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "mocked-flow",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^deviceManagement/deviceEnrollmentConfigurations",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "v1.0",
+          "routePattern": "^deviceManagement/deviceEnrollmentConfigurations(?:$|/)",
+          "responseFixture": "Graph/enrollment.restriction.created.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^policies/mobileDeviceManagementPolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^policies/mobileDeviceManagementPolicies/.+/includedGroups/\\$ref$"
+        },
+        {
+          "method": "DELETE",
+          "apiVersion": "beta",
+          "routePattern": "^policies/mobileDeviceManagementPolicies/.+/includedGroups/.+/\\$ref$"
+        }
+      ]
+    },
+    {
+      "module": "Autopilot",
+      "moduleFile": "Workloads/DER.Autopilot.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/windowsAutopilotDeploymentProfiles",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/windowsAutopilotDeploymentProfiles",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^deviceManagement/deviceEnrollmentConfigurations",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "v1.0",
+          "routePattern": "^deviceManagement/deviceEnrollmentConfigurations",
+          "responseFixture": "Graph/enrollment.restriction.created.json"
+        }
+      ]
+    },
+    {
+      "module": "Compliance",
+      "moduleFile": "Workloads/DER.Compliance.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "mocked-flow",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceCompliancePolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceCompliancePolicies",
+          "responseFixture": "Graph/deviceConfiguration.created.json"
+        }
+      ]
+    },
+    {
+      "module": "BitLocker",
+      "moduleFile": "Workloads/DER.BitLocker.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        }
+      ]
+    },
+    {
+      "module": "LAPS",
+      "moduleFile": "Workloads/DER.LAPS.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/deviceRegistrationPolicy$",
+          "responseFixture": "Graph/deviceRegistrationPolicy.current.json"
+        },
+        {
+          "method": "PUT",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/deviceRegistrationPolicy$",
+          "responseFixture": "Graph/deviceRegistrationPolicy.current.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        }
+      ]
+    },
+    {
+      "module": "Defender",
+      "moduleFile": "Workloads/DER.Defender.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        }
+      ]
+    },
+    {
+      "module": "ASR",
+      "moduleFile": "Workloads/DER.ASR.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        }
+      ]
+    },
+    {
+      "module": "Firewall",
+      "moduleFile": "Workloads/DER.Firewall.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        }
+      ]
+    },
+    {
+      "module": "Configuration",
+      "moduleFile": "Workloads/DER.Configuration.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationSettings",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        }
+      ]
+    },
+    {
+      "module": "AuthenticationMethods",
+      "moduleFile": "Workloads/DER.AuthenticationMethods.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/authenticationMethodsPolicy/authenticationMethodConfigurations/",
+          "responseFixture": "Graph/authMethods.authenticator.disabled.json"
+        },
+        {
+          "method": "PATCH",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/authenticationMethodsPolicy/authenticationMethodConfigurations/",
+          "responseFixture": "Graph/authMethods.authenticator.disabled.json"
+        }
+      ]
+    },
+    {
+      "module": "NamedLocations",
+      "moduleFile": "Workloads/DER.NamedLocations.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^identity/conditionalAccess/namedLocations",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "v1.0",
+          "routePattern": "^identity/conditionalAccess/namedLocations$",
+          "responseFixture": "Graph/namedLocation.created.json"
+        }
+      ]
+    },
+    {
+      "module": "ConditionalAccess",
+      "moduleFile": "Workloads/DER.ConditionalAccess.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "mocked-flow",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^roleManagement/directory/roleDefinitions",
+          "responseFixture": "Graph/conditionalAccess.roleDefinitions.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/authenticationStrengthPolicies",
+          "responseFixture": "Graph/conditionalAccess.authenticationStrengths.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^identity/conditionalAccess/policies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "v1.0",
+          "routePattern": "^identity/conditionalAccess/policies$",
+          "responseFixture": "Graph/conditionalAccess.created.reportOnly.json"
+        }
+      ]
+    },
+    {
+      "module": "GuestExternal",
+      "moduleFile": "Workloads/DER.GuestExternal.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/authorizationPolicy$"
+        },
+        {
+          "method": "PATCH",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/authorizationPolicy$"
+        }
+      ]
+    },
+    {
+      "module": "AppConsent",
+      "moduleFile": "Workloads/DER.AppConsent.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/adminConsentRequestPolicy$",
+          "responseFixture": "Graph/adminConsent.policy.disabled.json"
+        },
+        {
+          "method": "PUT",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/adminConsentRequestPolicy$",
+          "responseFixture": "Graph/adminConsent.policy.disabled.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^groups/.+/transitiveMembers/",
+          "responseFixture": "Graph/collection.empty.json"
+        }
+      ]
+    },
+    {
+      "module": "PasswordProtection",
+      "moduleFile": "Workloads/DER.PasswordProtection.psm1",
+      "graphMode": "ManualOnly",
+      "coverageMode": "manual-only",
+      "interactions": []
+    },
+    {
+      "module": "PIM",
+      "moduleFile": "Workloads/DER.PIM.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^roleManagement/directory/roleDefinitions",
+          "responseFixture": "Graph/conditionalAccess.roleDefinitions.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/roleManagementPolicyAssignments",
+          "responseFixture": "Graph/pim.policyAssignment.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/roleManagementPolicies/.+/rules",
+          "responseFixture": "Graph/pim.policyRules.json"
+        },
+        {
+          "method": "PATCH",
+          "apiVersion": "v1.0",
+          "routePattern": "^policies/roleManagementPolicies/.+/rules/"
+        }
+      ]
+    },
+    {
+      "module": "Updates",
+      "moduleFile": "Workloads/DER.Updates.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "mocked-flow",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceConfigurations",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceConfigurations$",
+          "responseFixture": "Graph/updates.ring.created.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "v1.0",
+          "routePattern": "^deviceManagement/windowsFeatureUpdateProfiles",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "v1.0",
+          "routePattern": "^deviceManagement/windowsFeatureUpdateProfiles$",
+          "responseFixture": "Graph/updates.feature.created.json"
+        }
+      ]
+    },
+    {
+      "module": "Drivers",
+      "moduleFile": "Workloads/DER.Drivers.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/windowsDriverUpdateProfiles",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/windowsDriverUpdateProfiles$",
+          "responseFixture": "Graph/driverProfile.created.json"
+        }
+      ]
+    },
+    {
+      "module": "OneDrive",
+      "moduleFile": "Workloads/DER.OneDrive.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationSettings",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/configurationPolicies$",
+          "responseFixture": "Graph/configurationPolicy.created.json"
+        }
+      ]
+    },
+    {
+      "module": "DeliveryOptimization",
+      "moduleFile": "Workloads/DER.DeliveryOptimization.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceConfigurations",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceConfigurations$",
+          "responseFixture": "Graph/deviceConfiguration.created.json"
+        }
+      ]
+    },
+    {
+      "module": "TenantSettings",
+      "moduleFile": "Workloads/DER.TenantSettings.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "mocked-flow",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/managedDeviceCleanupRules",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/managedDeviceCleanupRules$",
+          "responseFixture": "Graph/deviceConfiguration.created.json"
+        },
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/intuneBrandingProfiles",
+          "responseFixture": "Graph/tenant.branding.default.json"
+        },
+        {
+          "method": "PATCH",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/intuneBrandingProfiles/",
+          "responseFixture": "Graph/tenant.branding.default.json"
+        }
+      ]
+    },
+    {
+      "module": "Analytics",
+      "moduleFile": "Workloads/DER.Analytics.psm1",
+      "graphMode": "Automatic",
+      "coverageMode": "pure+mock-contract",
+      "interactions": [
+        {
+          "method": "GET",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceConfigurations",
+          "responseFixture": "Graph/collection.empty.json"
+        },
+        {
+          "method": "POST",
+          "apiVersion": "beta",
+          "routePattern": "^deviceManagement/deviceConfigurations$",
+          "responseFixture": "Graph/deviceConfiguration.created.json"
+        }
+      ]
+    },
+    {
+      "module": "LoggingIntegration",
+      "moduleFile": "Workloads/DER.LoggingIntegration.psm1",
+      "graphMode": "ManualOnly",
+      "coverageMode": "manual-only",
+      "interactions": []
+    }
+  ],
+  "fixtures": [
+    {
+      "name": "adminConsent.policy.disabled",
+      "path": "Graph/adminConsent.policy.disabled.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "authMethods.authenticator.disabled",
+      "path": "Graph/authMethods.authenticator.disabled.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "authMethods.authenticator.enabled",
+      "path": "Graph/authMethods.authenticator.enabled.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "collection.empty",
+      "path": "Graph/collection.empty.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "conditionalAccess.authenticationStrengths",
+      "path": "Graph/conditionalAccess.authenticationStrengths.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "conditionalAccess.created.reportOnly",
+      "path": "Graph/conditionalAccess.created.reportOnly.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "conditionalAccess.roleDefinitions",
+      "path": "Graph/conditionalAccess.roleDefinitions.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "configurationPolicy.created",
+      "path": "Graph/configurationPolicy.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "deviceConfiguration.created",
+      "path": "Graph/deviceConfiguration.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "deviceRegistrationPolicy.current",
+      "path": "Graph/deviceRegistrationPolicy.current.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "driverProfile.created",
+      "path": "Graph/driverProfile.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "enrollment.assignments.empty",
+      "path": "Graph/enrollment.assignments.empty.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "enrollment.restriction.created",
+      "path": "Graph/enrollment.restriction.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "groups.created",
+      "path": "Graph/groups.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "groups.customerCollision",
+      "path": "Graph/groups.customerCollision.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "namedLocation.created",
+      "path": "Graph/namedLocation.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "pim.policyAssignment",
+      "path": "Graph/pim.policyAssignment.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "pim.policyRules",
+      "path": "Graph/pim.policyRules.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "tenant.branding.default",
+      "path": "Graph/tenant.branding.default.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "updates.feature.created",
+      "path": "Graph/updates.feature.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    },
+    {
+      "name": "updates.ring.created",
+      "path": "Graph/updates.ring.created.json",
+      "format": "MicrosoftGraphLikeJson",
+      "sanitized": true
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "id": "00000000-0000-4000-8000-000000000901",
+  "name": "Synthetic Settings Catalog Fixture",
+  "description": "Synthetic fixture",
+  "platforms": "windows10",
+  "technologies": "mdm"
+}

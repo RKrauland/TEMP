@@ -1,0 +1,73 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "1.0.0",
+  "generatedForPackage": "1.0.0-dev",
+  "generatedForBuild": 24,
+  "purpose": "Controlled one-object write/read-back/rollback/purge canary for a disposable Microsoft Entra test tenant after a passing same-package DER no-write integration run.",
+  "prerequisite": {
+    "evidenceType": "DER-TestTenant-NoWrite",
+    "sameTenantRequired": true,
+    "samePackageRequired": true,
+    "packageManifestHashMatchRequired": true,
+    "evidenceMustPass": true,
+    "zeroWriteAuthenticationRequired": true,
+    "zeroTransportWritesRequired": true,
+    "zeroGraphBypassesRequired": true
+  },
+  "operator": {
+    "confirmationToken": "CANARY-WRITE",
+    "requiredRoles": [
+      "Groups Administrator",
+      "User Administrator",
+      "Privileged Role Administrator",
+      "Global Administrator"
+    ],
+    "recommendation": "Use Groups Administrator where practical. The canary is not role-assignable."
+  },
+  "graph": {
+    "apiVersion": "v1.0",
+    "requiredDelegatedScopes": [
+      "Group.ReadWrite.All",
+      "Organization.Read.All"
+    ],
+    "controlledObjectCount": 1,
+    "allowedMutationMethods": [
+      "POST",
+      "DELETE"
+    ],
+    "expectedMutationDelta": {
+      "POST": 1,
+      "PATCH": 0,
+      "PUT": 0,
+      "DELETE": 2
+    },
+    "createUri": "groups",
+    "activeDeleteUriTemplate": "groups/{id}",
+    "deletedItemUriTemplate": "directory/deletedItems/{id}"
+  },
+  "object": {
+    "type": "microsoft.graph.group",
+    "groupType": "Security",
+    "mailEnabled": false,
+    "securityEnabled": true,
+    "membersAllowed": false,
+    "ownersSpecified": false,
+    "assignmentsAllowed": false,
+    "dynamicMembershipAllowed": false,
+    "roleAssignableAllowed": false,
+    "namePrefix": "DER Canary - DELETE ME - "
+  },
+  "cleanup": {
+    "softDeleteRequired": true,
+    "verifyDeletedItemIdentityBeforePurge": true,
+    "permanentPurgeRequired": true,
+    "cleanupRestrictedToCreatedObjectId": true,
+    "failureIfAnyCanaryObjectRemains": true
+  },
+  "evidence": {
+    "schema": "Definitions/Schema/DER-CanaryEvidence.schema.json",
+    "jsonFile": "DER-CanaryEvidence.json",
+    "htmlFile": "DER-CanaryEvidence.html",
+    "stepsCsvFile": "DER-CanarySteps.csv"
+  }
+}

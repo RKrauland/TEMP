@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceType": "DER-Dev-Certification",
+  "packageVersion": "1.0.0-dev",
+  "buildNumber": 24,
+  "checkedUtc": "2026-08-20T12:00:00Z",
+  "status": "LOCAL-PASS",
+  "productionReady": false,
+  "packageManifestSHA256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+  "localValidation": {
+    "package": "PASS",
+    "smoke": "PASS"
+  },
+  "externalEvidence": {
+    "provided": false,
+    "complete": false,
+    "tenantId": null
+  },
+  "gates": [
+    {
+      "id": "PackageIntegrity",
+      "status": "PASS",
+      "message": "Package integrity passed."
+    },
+    {
+      "id": "WindowsSmoke",
+      "status": "PASS",
+      "message": "Windows smoke passed."
+    },
+    {
+      "id": "TenantNoWrite",
+      "status": "NOT-PROVIDED",
+      "message": "Evidence not supplied."
+    },
+    {
+      "id": "TenantCanary",
+      "status": "NOT-PROVIDED",
+      "message": "Evidence not supplied."
+    },
+    {
+      "id": "TenantPilot",
+      "status": "NOT-PROVIDED",
+      "message": "Evidence not supplied."
+    }
+  ]
+}

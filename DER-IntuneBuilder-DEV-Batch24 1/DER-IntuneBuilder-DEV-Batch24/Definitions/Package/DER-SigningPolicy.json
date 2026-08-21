@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "1.0.0",
+  "development": {
+    "unsignedAllowed": true,
+    "failOnInvalidSignature": true
+  },
+  "release": {
+    "authenticodeRequired": true,
+    "publisherTrustMode": "ExplicitThumbprint",
+    "allowedCertificateThumbprints": [],
+    "blockIfThumbprintListEmpty": true,
+    "timestampRequired": true
+  },
+  "signablePaths": [
+    "Start-DERIntuneBuilder.ps1",
+    "Core/*.psm1",
+    "Workloads/*.psm1"
+  ],
+  "releaseProcedure": [
+    "Use a DER-controlled code-signing certificate with the Code Signing EKU and a private key.",
+    "Add the certificate thumbprint to the release signing policy before package-manifest generation.",
+    "Authenticode-sign all runtime PowerShell files and timestamp each signature.",
+    "Generate the package manifest after child files are signed; embed its SHA-256 in the parent trust anchor; then sign the parent last.",
+    "Regenerate SHA256SUMS.txt and run Tools/Test-DERPackage.ps1 -RequireSigned before distribution."
+  ]
+}

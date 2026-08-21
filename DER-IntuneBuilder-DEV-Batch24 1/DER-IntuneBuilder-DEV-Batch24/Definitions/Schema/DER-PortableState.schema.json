@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.local/schemas/DER-PortableState.schema.json",
+  "title": "DER Portable State Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "EnvelopeSchemaVersion",
+    "Format",
+    "PortableStateVersion",
+    "TenantId",
+    "ExportedAt",
+    "ExportedByRunId",
+    "ObjectCount",
+    "PayloadEncoding",
+    "PayloadBase64",
+    "Integrity"
+  ],
+  "properties": {
+    "EnvelopeSchemaVersion": {
+      "const": "1.0"
+    },
+    "Format": {
+      "const": "DER.PortableState"
+    },
+    "PortableStateVersion": {
+      "const": "1.0"
+    },
+    "TenantId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "TenantName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ExportedAt": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ExportedByRunId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "EngineVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "BaselineVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "StateSchemaVersion": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ObjectCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "PayloadEncoding": {
+      "const": "base64-utf8-json"
+    },
+    "PayloadBase64": {
+      "type": "string",
+      "minLength": 2
+    },
+    "Integrity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "Algorithm",
+        "Scope",
+        "SHA256"
+      ],
+      "properties": {
+        "Algorithm": {
+          "const": "SHA256"
+        },
+        "Scope": {
+          "const": "DecodedPayloadBytes"
+        },
+        "SHA256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "Notes": {
+      "type": "string"
+    }
+  }
+}

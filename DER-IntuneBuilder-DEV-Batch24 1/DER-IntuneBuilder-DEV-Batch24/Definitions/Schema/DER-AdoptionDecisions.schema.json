@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.local/schema/DER-AdoptionDecisions.schema.json",
+  "title": "DER Adoption Decisions",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "tenantId",
+    "decisions"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "tenantId": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "derId",
+          "objectId",
+          "decision"
+        ],
+        "properties": {
+          "derId": {
+            "type": "string",
+            "pattern": "^DER-"
+          },
+          "objectId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "decision": {
+            "enum": [
+              "Adopt",
+              "Skip"
+            ]
+          },
+          "acknowledgement": {
+            "type": "string"
+          },
+          "allowIncompleteComparison": {
+            "type": "boolean"
+          },
+          "notes": {
+            "type": "string"
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "decision": {
+                  "const": "Adopt"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "acknowledgement"
+              ],
+              "properties": {
+                "acknowledgement": {
+                  "const": "I understand DER adoption changes local DER ownership state only and does not modify the tenant object during adoption."
+                }
+              }
+            }
+          }
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

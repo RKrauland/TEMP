@@ -1,0 +1,698 @@
+{
+  "schemaVersion": "1.0",
+  "baselineVersion": "1.0.0",
+  "definitionType": "BaselineIndex",
+  "name": "DER Baseline Object Index",
+  "immutable": true,
+  "definitions": [
+    {
+      "derId": "DER-ANALYTICS-010",
+      "module": "Analytics",
+      "objectType": "EndpointAnalyticsSettings",
+      "action": "Configure",
+      "safeState": "Pilot device group only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-AP-010",
+      "module": "Autopilot",
+      "objectType": "AutopilotProfile",
+      "action": "Create",
+      "safeState": "Assigned only to DER Autopilot group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-AP-030",
+      "module": "Autopilot",
+      "objectType": "AutopilotProfile",
+      "action": "Create",
+      "safeState": "Assigned only to empty DER self-deploying group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-ASR-010",
+      "module": "ASR",
+      "objectType": "EndpointSecurityPolicy",
+      "action": "Create",
+      "safeState": "Audit-first/Pilot",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-ASR-020",
+      "module": "ASR",
+      "objectType": "EndpointSecurityPolicy",
+      "action": "Create",
+      "safeState": "Audit",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-ASR-030",
+      "module": "ASR",
+      "objectType": "EndpointSecurityPolicy",
+      "action": "Create",
+      "safeState": "Audit",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-AUTH-010",
+      "module": "AuthenticationMethods",
+      "objectType": "AuthenticationMethodsPolicy",
+      "action": "Configure",
+      "safeState": "Pilot/scoped where supported",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-BL-010",
+      "module": "BitLocker",
+      "objectType": "EndpointSecurityPolicy",
+      "action": "Create",
+      "safeState": "Pilot only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-010",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-020",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-030",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-040",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-050",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-060",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-070",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-080",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-090",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-100",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-110",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CAP-120",
+      "module": "ConditionalAccess",
+      "objectType": "ConditionalAccessPolicy",
+      "action": "Create",
+      "safeState": "Report-only",
+      "productionBehavior": "ReportOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CFG-010",
+      "module": "Configuration",
+      "objectType": "SettingsCatalogPolicy",
+      "action": "Configure",
+      "safeState": "Pilot only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CFG-020",
+      "module": "OneDrive",
+      "objectType": "SettingsCatalogPolicy",
+      "action": "Create",
+      "safeState": "Pilot device group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CFG-030",
+      "module": "Configuration",
+      "objectType": "SettingsCatalogPolicy",
+      "action": "Configure",
+      "safeState": "Pilot only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-COMP-010",
+      "module": "Compliance",
+      "objectType": "CompliancePolicy",
+      "action": "Create",
+      "safeState": "Pilot only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-CONSENT-010",
+      "module": "AppConsent",
+      "objectType": "AdminConsentRequestPolicy",
+      "action": "Configure",
+      "safeState": "Reviewers required",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Adopted"
+    },
+    {
+      "derId": "DER-DO-010",
+      "module": "DeliveryOptimization",
+      "objectType": "DeliveryOptimizationConfiguration",
+      "action": "Create",
+      "safeState": "Pilot device group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-ENR-010",
+      "module": "Enrollment",
+      "objectType": "EnrollmentRestriction",
+      "action": "Create",
+      "safeState": "Enrollment Users group only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-ENR-020",
+      "module": "Enrollment",
+      "objectType": "EnrollmentLimit",
+      "action": "Create",
+      "safeState": "Enrollment Users group only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-ENTRA-010",
+      "module": "EntraDevice",
+      "objectType": "DeviceRegistrationPolicy",
+      "action": "Configure",
+      "safeState": "Explicit approval required",
+      "productionBehavior": "ExplicitApproval",
+      "ownershipOnCreate": "DER-Adopted"
+    },
+    {
+      "derId": "DER-ESP-010",
+      "module": "Autopilot",
+      "objectType": "EnrollmentStatusPage",
+      "action": "Create",
+      "safeState": "Assigned only to DER Autopilot group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-FU-010",
+      "module": "Updates",
+      "objectType": "FeatureUpdatePolicy",
+      "action": "Create",
+      "safeState": "Pilot group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-FU-020",
+      "module": "Updates",
+      "objectType": "FeatureUpdatePolicy",
+      "action": "Create",
+      "safeState": "Empty Production group",
+      "productionBehavior": "EmptyProductionTarget",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-FW-010",
+      "module": "Firewall",
+      "objectType": "EndpointSecurityPolicy",
+      "action": "Create",
+      "safeState": "Pilot only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-010",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-020",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-100",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-110",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-120",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-130",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-140",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-D-150",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-DY-D-010",
+      "module": "Groups",
+      "objectType": "DynamicSecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-DY-D-020",
+      "module": "Groups",
+      "objectType": "DynamicSecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-DY-D-030",
+      "module": "Groups",
+      "objectType": "DynamicSecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-DY-D-040",
+      "module": "Groups",
+      "objectType": "DynamicSecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-DY-D-050",
+      "module": "Groups",
+      "objectType": "DynamicSecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-DY-D-060",
+      "module": "Groups",
+      "objectType": "DynamicSecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-010",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-020",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-030",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-040",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-050",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-060",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-070",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-080",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-090",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-100",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GRP-U-110",
+      "module": "Groups",
+      "objectType": "SecurityGroup",
+      "action": "Create",
+      "safeState": "Assigned/dynamic group only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-GUEST-010",
+      "module": "GuestExternal",
+      "objectType": "ExternalCollaborationSettings",
+      "action": "Configure",
+      "safeState": "Explicit approval",
+      "productionBehavior": "ExplicitApproval",
+      "ownershipOnCreate": "DER-Adopted"
+    },
+    {
+      "derId": "DER-LAPS-010",
+      "module": "LAPS",
+      "objectType": "EndpointSecurityPolicy",
+      "action": "Create",
+      "safeState": "Pilot only / tenant switch approval",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-LOC-COUNTRY-010",
+      "module": "NamedLocations",
+      "objectType": "NamedLocation",
+      "action": "Create",
+      "safeState": "Not trusted; geographic CA reference only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-LOC-VPN-010",
+      "module": "NamedLocations",
+      "objectType": "NamedLocation",
+      "action": "Configure",
+      "safeState": "Not trusted unless explicitly approved",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-LOGINT-010",
+      "module": "LoggingIntegration",
+      "objectType": "DiagnosticSettings",
+      "action": "Configure",
+      "safeState": "Manual until Azure Monitor resource authentication is implemented",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "Manual"
+    },
+    {
+      "derId": "DER-PIM-010",
+      "module": "PIM",
+      "objectType": "PrivilegedRolePolicy",
+      "action": "Configure",
+      "safeState": "Eligible/JIT; selected roles only",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-SEC-010",
+      "module": "Defender",
+      "objectType": "EndpointSecurityPolicy",
+      "action": "Create",
+      "safeState": "Pilot only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-SEC-020",
+      "module": "Configuration",
+      "objectType": "SettingsCatalogPolicy",
+      "action": "Create",
+      "safeState": "Pilot only",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-TENANT-010",
+      "module": "TenantSettings",
+      "objectType": "ManagedDeviceCleanupRule",
+      "action": "Create",
+      "safeState": "Windows records only; no wipe/retire/Entra delete",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-TENANT-020",
+      "module": "TenantSettings",
+      "objectType": "IntuneBrandingProfileSupportFields",
+      "action": "Configure",
+      "safeState": "Only engineer-supplied support fields; preserve all other branding",
+      "productionBehavior": "NoAssignment",
+      "ownershipOnCreate": "DER-Adopted"
+    },
+    {
+      "derId": "DER-WU-010",
+      "module": "Updates",
+      "objectType": "UpdateRing",
+      "action": "Create",
+      "safeState": "Pilot group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-WU-020",
+      "module": "Updates",
+      "objectType": "UpdateRing",
+      "action": "Create",
+      "safeState": "Empty Production group",
+      "productionBehavior": "EmptyProductionTarget",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-WU-030",
+      "module": "Drivers",
+      "objectType": "DriverUpdatePolicy",
+      "action": "Create",
+      "safeState": "Pilot group",
+      "productionBehavior": "PilotOnly",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-WU-040",
+      "module": "Drivers",
+      "objectType": "DriverUpdatePolicy",
+      "action": "Create",
+      "safeState": "Empty Production group",
+      "productionBehavior": "EmptyProductionTarget",
+      "ownershipOnCreate": "DER-Owned"
+    },
+    {
+      "derId": "DER-XTENANT-010",
+      "module": "GuestExternal",
+      "objectType": "CrossTenantAccessPolicy",
+      "action": "Configure",
+      "safeState": "Explicit partner-by-partner approval",
+      "productionBehavior": "ExplicitApproval",
+      "ownershipOnCreate": "DER-Adopted"
+    }
+  ],
+  "metadata": {
+    "count": 73,
+    "source": "Core/DER.Planner.psm1 literal DER IDs; runtime-generated DER-ID families are explicitly modeled in dynamicDerIdPatterns.",
+    "dynamicDerIdPatterns": [
+      {
+        "id": "DepartmentUserGroups",
+        "pattern": "^DER-GRP-U-[0-9]+0$",
+        "constraints": {
+          "start": 200,
+          "increment": 10
+        },
+        "module": "Groups",
+        "objectType": "SecurityGroup",
+        "source": "Core/DER.Planner.psm1:Add-DERGroupObjects",
+        "sourceExpression": "DER-GRP-U-{0}",
+        "notes": "Department group IDs start at 200 and increase by 10 for each questionnaire department."
+      },
+      {
+        "id": "SiteNamedLocations",
+        "pattern": "^DER-LOC-SITE-[0-9]{3}$",
+        "constraints": {
+          "format": "000",
+          "sourceIndex": "Answers.Infrastructure.Sites[].Index"
+        },
+        "module": "NamedLocations",
+        "objectType": "NamedLocation",
+        "source": "Core/DER.Planner.psm1:Add-DERWorkloadObjects",
+        "sourceExpression": "DER-LOC-SITE-{0:000}",
+        "notes": "One DER ID is generated for each site explicitly selected to create a named location."
+      }
+    ]
+  }
+}

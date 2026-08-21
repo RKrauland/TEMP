@@ -1,0 +1,6 @@
+{
+  "id": "00000000-0000-4000-8000-000000000401",
+  "displayName": "DER - WU - 010 - Windows Update - Pilot",
+  "@odata.type": "#microsoft.graph.windowsUpdateForBusinessConfiguration",
+  "qualityUpdatesDeferralPeriodInDays": 2
+}

@@ -1,0 +1,369 @@
+{
+  "schemaVersion": "1.0",
+  "catalogVersion": "1.0.0",
+  "generatedForBaseline": "1.0.0",
+  "verifiedDate": "2026-08-20",
+  "authority": "Microsoft Learn",
+  "policy": {
+    "default": "Fail to generic engineer guidance when a MAN-ID has no exact catalog entry. Portal paths are guidance, never an instruction to bypass DER approval or safety controls.",
+    "sourceRequirement": "Exact paths in this catalog must be backed by Microsoft Learn documentation.",
+    "portalDrift": "Microsoft admin-center labels can change; re-verify this catalog before a production release."
+  },
+  "entries": [
+    {
+      "id": "MAN-AP-001",
+      "category": "Autopilot",
+      "portal": "Microsoft Intune admin center",
+      "portalUrl": "https://intune.microsoft.com",
+      "minimumRole": "Intune Administrator",
+      "clickPath": [
+        "Devices",
+        "Windows",
+        "Enrollment",
+        "Windows Autopilot",
+        "Devices",
+        "Import"
+      ],
+      "steps": [
+        "Collect the hardware hash CSV from each device that DER cannot reach automatically.",
+        "Open the Windows Autopilot devices page using the click path above and select Import.",
+        "Select the hardware hash CSV and import it.",
+        "Select Sync after the import completes, then Refresh until the devices appear."
+      ],
+      "verification": [
+        "Confirm each imported serial number appears in Windows Autopilot devices.",
+        "Confirm the intended group tag/profile assignment is present before wiping or handing the device to a user."
+      ],
+      "docs": [
+        {
+          "title": "Register devices as Windows Autopilot devices",
+          "url": "https://learn.microsoft.com/en-us/autopilot/tutorial/self-deploying/self-deploying-register-device"
+        }
+      ]
+    },
+    {
+      "id": "MAN-SSPR-001",
+      "category": "Identity",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "Authentication Policy Administrator",
+      "clickPath": [
+        "Entra ID",
+        "Password reset",
+        "Properties"
+      ],
+      "steps": [
+        "Set Self service password reset enabled to Selected.",
+        "Choose the DER SSPR pilot group: {{Group}}.",
+        "Save the setting."
+      ],
+      "verification": [
+        "Re-open Password reset > Properties and confirm Selected is still enabled for {{Group}}.",
+        "Test registration/reset with a pilot user before broadening scope."
+      ],
+      "docs": [
+        {
+          "title": "Enable Microsoft Entra self-service password reset",
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-enable-sspr"
+        }
+      ]
+    },
+    {
+      "id": "MAN-EA-001",
+      "category": "Emergency Access",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "Global Administrator / Privileged Role Administrator as applicable",
+      "clickPath": [
+        "Entra ID",
+        "Users",
+        "New user",
+        "Create new user"
+      ],
+      "steps": [
+        "Create at least two cloud-only emergency access users using the tenant .onmicrosoft.com domain.",
+        "Assign the Global Administrator role as permanent active to the emergency access accounts.",
+        "Configure phishing-resistant authentication, preferably passkeys (FIDO2), with credentials stored independently from normal administrators.",
+        "Ensure the emergency access accounts are excluded from Conditional Access policies that could block or restrict emergency sign-in.",
+        "Store credentials securely, monitor every use, and document a validation drill at least every 90 days."
+      ],
+      "verification": [
+        "Confirm both accounts are cloud-only and can sign in with the designated phishing-resistant method.",
+        "Confirm both have permanent active Global Administrator assignment.",
+        "Use Conditional Access What If / policy review to confirm blocking policies exclude the emergency accounts."
+      ],
+      "docs": [
+        {
+          "title": "Manage emergency access admin accounts",
+          "url": "https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/security-emergency-access"
+        },
+        {
+          "title": "Create and manage Microsoft Entra users",
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-to-create-delete-users"
+        }
+      ]
+    },
+    {
+      "id": "MAN-GUEST-001",
+      "category": "Guest Access",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "Privileged Role Administrator",
+      "clickPath": [
+        "Entra ID",
+        "Users",
+        "Select approved guest inviter",
+        "Assigned roles",
+        "Add assignments"
+      ],
+      "steps": [
+        "Select the approved user who should be able to invite guests.",
+        "Add the Guest Inviter Microsoft Entra role.",
+        "Use the DER reference group {{Group}} only as the approval/reference list unless a separately approved role-assignable group is created."
+      ],
+      "verification": [
+        "Open the user > Assigned roles and confirm Guest Inviter is present.",
+        "Confirm no broader administrative role was granted just to allow guest invitations."
+      ],
+      "docs": [
+        {
+          "title": "Configure external collaboration / Guest Inviter",
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/external-collaboration-settings-configure"
+        },
+        {
+          "title": "Manage Microsoft Entra user roles",
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-to-assign-roles-to-users"
+        }
+      ]
+    },
+    {
+      "id": "MAN-XTENANT-001",
+      "category": "External Collaboration",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "Security Administrator",
+      "clickPath": [
+        "Entra ID",
+        "External Identities",
+        "Cross-tenant access settings",
+        "Organizational settings"
+      ],
+      "steps": [
+        "Review each explicitly supplied partner tenant: {{Partners}}.",
+        "Add the partner organization if it is not already present.",
+        "Review inbound B2B collaboration, outbound B2B collaboration, and trust settings separately.",
+        "Only trust partner MFA, compliant-device, or Microsoft Entra hybrid joined claims when that trust was explicitly approved.",
+        "Save each partner-specific configuration and leave unrelated organizations on the tenant default."
+      ],
+      "verification": [
+        "Re-open each partner organization and confirm inbound, outbound, and trust settings match the approved design.",
+        "Confirm no tenant-wide default trust was changed as a shortcut for partner-specific configuration."
+      ],
+      "docs": [
+        {
+          "title": "Manage cross-tenant access settings for B2B collaboration",
+          "url": "https://learn.microsoft.com/en-us/entra/external-id/cross-tenant-access-settings-b2b-collaboration"
+        }
+      ]
+    },
+    {
+      "id": "MAN-PASS-001",
+      "category": "Identity",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "Authentication Policy Administrator",
+      "clickPath": [
+        "Entra ID",
+        "Authentication methods",
+        "Password protection"
+      ],
+      "steps": [
+        "Set Enforce custom list to Yes.",
+        "Review and add only approved organization-specific base terms. DER suggested terms: {{SuggestedTerms}}.",
+        "Avoid large password dictionaries; the custom list is intended for organization-specific terms.",
+        "Save the password protection configuration."
+      ],
+      "verification": [
+        "Re-open Password protection and confirm the custom list is enabled and contains only approved terms."
+      ],
+      "docs": [
+        {
+          "title": "Configure custom Microsoft Entra password protection lists",
+          "url": "https://learn.microsoft.com/en-us/entra/identity/authentication/tutorial-configure-custom-password-protection"
+        }
+      ]
+    },
+    {
+      "id": "MAN-PIM-APPROVER-001",
+      "category": "PIM",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "Privileged Role Administrator",
+      "clickPath": [
+        "ID Governance",
+        "Privileged Identity Management",
+        "Microsoft Entra roles",
+        "Roles",
+        "Select role",
+        "Role settings",
+        "Edit"
+      ],
+      "steps": [
+        "For each role where approval is required, open Role settings and select Edit.",
+        "Enable Require approval to activate.",
+        "Select at least two approved approvers where possible.",
+        "Review activation duration, MFA/authentication strength, justification, ticket, and notification settings before selecting Update."
+      ],
+      "verification": [
+        "Re-open the role settings and confirm approval is required and the intended approvers are listed.",
+        "Confirm there is no lockout condition where every Privileged Role Administrator/Global Administrator is only eligible and no usable approver exists."
+      ],
+      "docs": [
+        {
+          "title": "Configure Microsoft Entra role settings in PIM",
+          "url": "https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-how-to-change-default-settings"
+        }
+      ]
+    },
+    {
+      "id": "MAN-STAGE-001",
+      "category": "Enrollment",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "User Administrator",
+      "clickPath": [
+        "Entra ID",
+        "Users",
+        "New user",
+        "Create new user"
+      ],
+      "steps": [
+        "Create the dedicated staging/enrollment account requested by the build: {{StagingAccountName}}.",
+        "Keep the account cloud-only unless the approved design explicitly requires otherwise.",
+        "Do not grant broad administrator roles merely for device staging.",
+        "Apply only the enrollment/license/group assignments required by the approved deployment method and document the account owner/lifecycle."
+      ],
+      "verification": [
+        "Confirm the account exists with the intended UPN, licensing, and group membership.",
+        "Confirm it has no unnecessary directory role assignments."
+      ],
+      "docs": [
+        {
+          "title": "Create and manage Microsoft Entra users",
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-to-create-delete-users"
+        }
+      ]
+    },
+    {
+      "id": "MAN-DEM-001",
+      "category": "Enrollment",
+      "portal": "Microsoft Intune admin center",
+      "portalUrl": "https://intune.microsoft.com",
+      "minimumRole": "Intune Administrator",
+      "clickPath": [
+        "Devices",
+        "Enrollment",
+        "Device enrollment managers"
+      ],
+      "steps": [
+        "Use a dedicated account that is not assigned to an individual user.",
+        "Select Add.",
+        "Enter the approved account UPN and select Add.",
+        "Use DEM only when the selected enrollment method actually requires it; Windows Autopilot and some other methods do not require DEM."
+      ],
+      "verification": [
+        "Confirm the account appears on the Device enrollment managers tab.",
+        "Confirm the account remains available for devices previously enrolled with it; do not casually remove a DEM account that owns enrolled devices."
+      ],
+      "docs": [
+        {
+          "title": "Add device enrollment managers",
+          "url": "https://learn.microsoft.com/en-us/intune/device-enrollment/setup-enrollment-manager"
+        }
+      ]
+    },
+    {
+      "id": "MAN-BRAND-001",
+      "category": "Branding",
+      "portal": "Microsoft Entra admin center",
+      "portalUrl": "https://entra.microsoft.com",
+      "minimumRole": "Organizational Branding Administrator",
+      "clickPath": [
+        "Entra ID",
+        "Custom Branding"
+      ],
+      "steps": [
+        "Obtain customer-approved logos, images, colors, links, and sign-in text.",
+        "Open the default branding experience and select Edit, or create the default branding if none exists.",
+        "Apply only approved customer assets/text; do not invent legal or support wording.",
+        "Review the sign-in experience and submit the changes."
+      ],
+      "verification": [
+        "Test the sign-in page in a private browser session and confirm the approved branding renders correctly.",
+        "Confirm no unapproved legal text or stale customer branding remains."
+      ],
+      "docs": [
+        {
+          "title": "Configure company branding",
+          "url": "https://learn.microsoft.com/en-us/entra/fundamentals/how-to-customize-branding"
+        }
+      ]
+    },
+    {
+      "id": "MAN-TERMS-001",
+      "category": "Legal",
+      "portal": "Microsoft Intune admin center",
+      "portalUrl": "https://intune.microsoft.com",
+      "minimumRole": "Intune role with Terms and Conditions permissions / Intune Administrator",
+      "clickPath": [
+        "Tenant administration",
+        "End user experiences",
+        "Terms and conditions",
+        "Create"
+      ],
+      "steps": [
+        "Obtain the final customer/legal-approved terms text before creating the policy.",
+        "Select Create and enter the approved name, description, title, summary, and terms.",
+        "Configure the acceptance behavior and assignments exactly as approved.",
+        "Do not use DER-generated placeholder legal language."
+      ],
+      "verification": [
+        "Open the finished Terms and conditions policy and confirm the approved text and assignments.",
+        "Validate the Company Portal experience with a pilot user before broad deployment."
+      ],
+      "docs": [
+        {
+          "title": "Terms and conditions for user access",
+          "url": "https://learn.microsoft.com/en-us/intune/intune-service/enrollment/terms-and-conditions-create"
+        }
+      ]
+    },
+    {
+      "id": "MAN-LOG-001",
+      "category": "Logging",
+      "portal": "Microsoft Intune admin center",
+      "portalUrl": "https://intune.microsoft.com",
+      "minimumRole": "Intune Administrator plus Azure destination permissions",
+      "clickPath": [
+        "Reports",
+        "Diagnostics settings"
+      ],
+      "steps": [
+        "Open Diagnostics settings. The first visit may require turning the feature on; otherwise select Add setting.",
+        "Use the existing approved Azure Monitor destination: {{Destination}}.",
+        "Enable the approved Intune log categories. DER requested: {{Logs}}.",
+        "Configure the approved destination such as Log Analytics, Event Hub, or Storage and save."
+      ],
+      "verification": [
+        "Re-open the diagnostic setting and confirm the expected categories and destination are selected.",
+        "Verify new Intune log records arrive in the destination before closing the manual action."
+      ],
+      "docs": [
+        {
+          "title": "Route logs to Azure Monitor using Microsoft Intune",
+          "url": "https://learn.microsoft.com/en-us/intune/governance/integrate-azure-monitor"
+        }
+      ]
+    }
+  ]
+}

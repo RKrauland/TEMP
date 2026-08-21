@@ -1,0 +1,6 @@
+{
+  "id": "00000000-0000-4000-8000-000000000402",
+  "displayName": "DER - FU - 010 - Windows 11 - Pilot",
+  "@odata.type": "#microsoft.graph.windowsFeatureUpdateProfile",
+  "featureUpdateVersion": "Windows 11, version 25H2"
+}

@@ -1,0 +1,212 @@
+{
+  "schemaVersion": "1.0",
+  "baselineVersion": "1.0.0",
+  "definitionType": "Baseline",
+  "name": "DER Intune / Entra Standard Baseline",
+  "immutable": true,
+  "engineCompatibility": {
+    "minimumEngineVersion": "1.0.0-dev",
+    "minimumPowerShell": "7.4.0",
+    "graphAuthenticationModule": "Microsoft.Graph.Authentication 2.36.1"
+  },
+  "defaults": {
+    "rollout": {
+      "pilotFirst": true,
+      "productionEnforcement": false,
+      "productionGroupsStartEmpty": true,
+      "conditionalAccessState": "enabledForReportingButNotEnforced"
+    },
+    "ownership": {
+      "microsoftObjectIdIsAuthority": true,
+      "neverModifyUnowned": true,
+      "classes": [
+        "DER-Owned",
+        "DER-Adopted",
+        "Customer-Owned"
+      ],
+      "adoptionRequiresExplicitApproval": true
+    },
+    "updates": {
+      "targetFeatureUpdateVersion": "Windows 11, version 25H2",
+      "pilotQualityDeferralDays": 0,
+      "productionQualityDeferralDays": 7,
+      "updateDeadlineDays": 7,
+      "updateGraceDays": 2,
+      "featureDeadlineDays": 14,
+      "featureGraceDays": 2,
+      "driverPilotDelayDays": 3,
+      "driverProductionDelayDays": 14,
+      "respectSafeguards": true
+    },
+    "compliance": {
+      "nonComplianceGraceDays": 1,
+      "automaticRetireWipe": false,
+      "markNoPolicyNoncompliant": true
+    },
+    "security": {
+      "bitLockerCipher": "XTS-AES 128",
+      "lapsPasswordLength": 20,
+      "lapsRotationDays": 30,
+      "networkProtectionMode": "Audit",
+      "controlledFolderAccessMode": "Audit",
+      "deviceLockMinutes": 15,
+      "allowLocalFirewallRuleMerge": true
+    },
+    "autopilot": {
+      "method": "Traditional Windows Autopilot",
+      "scenario": "User-driven Microsoft Entra Join",
+      "endUserAccountType": "Standard User",
+      "espTimeoutMinutes": 60,
+      "espAllowReset": true,
+      "espContinueOnFailure": false,
+      "hidePrivacyOobe": true,
+      "hideConsumerOobe": true
+    },
+    "operations": {
+      "deviceCleanupDays": 90,
+      "endpointAnalyticsOptionalDataSharing": false
+    }
+  },
+  "invariants": [
+    "Never use display names as ownership authority.",
+    "Never automatically modify or delete Customer-Owned objects.",
+    "Production assignments are empty or non-enforcing until an engineer deliberately promotes targets.",
+    "Conditional Access policies begin Report-only.",
+    "Every write uses the central DER Graph engine.",
+    "Beta writes require the engineer Preview API gate and compatibility allowlist coverage.",
+    "A failed module may only roll back DER-Owned work from the current run or concurrency-safe adopted changes."
+  ],
+  "modules": [
+    {
+      "name": "Groups",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "EntraDevice",
+      "enabledByDefault": true,
+      "risk": "Medium"
+    },
+    {
+      "name": "Enrollment",
+      "enabledByDefault": true,
+      "risk": "Medium"
+    },
+    {
+      "name": "Autopilot",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "Compliance",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "BitLocker",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "LAPS",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "Defender",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "ASR",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "Firewall",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "Configuration",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "AuthenticationMethods",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "NamedLocations",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "ConditionalAccess",
+      "enabledByDefault": true,
+      "risk": "High"
+    },
+    {
+      "name": "GuestExternal",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "AppConsent",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "PasswordProtection",
+      "enabledByDefault": false,
+      "risk": "Low"
+    },
+    {
+      "name": "PIM",
+      "enabledByDefault": true,
+      "risk": "Medium"
+    },
+    {
+      "name": "Updates",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "Drivers",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "OneDrive",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "DeliveryOptimization",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "TenantSettings",
+      "enabledByDefault": true,
+      "risk": "Medium"
+    },
+    {
+      "name": "Analytics",
+      "enabledByDefault": true,
+      "risk": "Low"
+    },
+    {
+      "name": "LoggingIntegration",
+      "enabledByDefault": false,
+      "risk": "Low"
+    }
+  ],
+  "metadata": {
+    "definitionSchema": "1.0",
+    "compatibilityCatalogVersion": "1.0.0",
+    "created": "2026-08-19",
+    "status": "Development baseline contract"
+  }
+}

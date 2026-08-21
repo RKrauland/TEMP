@@ -1,0 +1,106 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "1.0.0",
+  "generatedForPackage": "1.0.0-dev",
+  "generatedForBuild": 24,
+  "platform": {
+    "os": "Windows",
+    "architectures": [
+      "X64"
+    ],
+    "minimumPowerShell": "7.4.0",
+    "preferredPowerShell": "7.6.4",
+    "requiredPSEdition": "Core",
+    "allowedLanguageModes": [
+      "FullLanguage"
+    ],
+    "minimumFreeDiskMB": 512
+  },
+  "runtime": {
+    "preferredRoot": "%ProgramData%\\DER\\IntuneBuilder",
+    "fallbackRoot": "%LOCALAPPDATA%\\DER\\IntuneBuilder",
+    "requiredSubdirectories": [
+      "Dependencies",
+      "Evidence",
+      "Logs",
+      "Reports",
+      "Runs",
+      "Snapshots",
+      "State",
+      "Temp",
+      "ValidationDependencies"
+    ]
+  },
+  "requiredCommands": [
+    "Get-FileHash",
+    "Get-AuthenticodeSignature",
+    "Import-Module",
+    "Invoke-WebRequest",
+    "Save-PSResource",
+    "Test-Json",
+    "Test-ModuleManifest"
+  ],
+  "endpoints": [
+    {
+      "id": "MicrosoftIdentity",
+      "uri": "https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration",
+      "required": true,
+      "purpose": "Microsoft identity routing/TLS reachability only; no sign-in is performed.",
+      "checkType": "Https"
+    },
+    {
+      "id": "PowerShellGallery",
+      "uri": "https://www.powershellgallery.com/api/v2/",
+      "required": true,
+      "purpose": "Pinned dependency/test-tool acquisition when not already cached.",
+      "checkType": "Https"
+    },
+    {
+      "id": "MicrosoftGraph",
+      "checkType": "Tls",
+      "host": "graph.microsoft.com",
+      "port": 443,
+      "required": true,
+      "purpose": "Microsoft Graph TCP/TLS reachability only. No HTTP or Graph API request is sent."
+    }
+  ],
+  "safety": {
+    "tenantBlind": true,
+    "graphAuthenticationAllowed": false,
+    "graphRequestsAllowed": false,
+    "tenantMutationAllowed": false,
+    "preflightMustCompleteBeforeGraphDependencyLoad": true,
+    "preflightMustCompleteBeforeGraphAuthentication": true
+  },
+  "smokeTest": {
+    "pester": {
+      "majorVersion": 5,
+      "minimumVersion": "5.5.0",
+      "preferredVersion": "5.9.0",
+      "allowPester6": false,
+      "isolatedRuntimeCache": true
+    },
+    "requiredStages": [
+      "Preflight",
+      "PackageIntegrity",
+      "PowerShellParse",
+      "JsonParse",
+      "JsonSchema",
+      "ModuleImport",
+      "PSScriptAnalyzer",
+      "Pester"
+    ],
+    "resultFormats": [
+      "JSON",
+      "NUnitXml"
+    ],
+    "psScriptAnalyzer": {
+      "minimumVersion": "1.24.0",
+      "preferredVersion": "1.24.0",
+      "isolatedRuntimeCache": true,
+      "failOnSeverity": [
+        "Error"
+      ]
+    }
+  }
+}

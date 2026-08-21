@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "templateVersion": "1.0.0",
+  "generatedForBaseline": "1.0.0",
+  "manualAction": {
+    "defaultStatus": "Open",
+    "closeRule": "Close a manual action only after its verification criteria are satisfied or an approved exception is documented.",
+    "ownerField": true,
+    "notesField": true,
+    "completedAtField": true
+  },
+  "productionActivationChecklist": [
+    "Create and validate two Emergency Access accounts and phishing-resistant authentication.",
+    "Close all Critical/High Manual Actions or document an approved exception.",
+    "Add test users/devices to DER Pilot groups.",
+    "Test Autopilot/OOBE and enrollment.",
+    "Review compliance, Defender, ASR, Network Protection and Controlled Folder Access results.",
+    "Review Conditional Access Report-only impact and geo/travel exceptions.",
+    "Review update/driver pilot behavior.",
+    "Promote approved assignments manually.",
+    "Only after validation, transition Security Defaults/Conditional Access as appropriate."
+  ],
+  "engineerHandoff": {
+    "closeRule": "Do not call the tenant finished until failed validations are resolved or approved as exceptions, Critical/High manual actions are closed, configuration drift is reviewed, and production promotion has been explicitly approved."
+  }
+}

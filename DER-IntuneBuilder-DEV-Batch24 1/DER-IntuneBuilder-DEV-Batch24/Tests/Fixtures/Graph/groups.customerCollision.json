@@ -1,0 +1,13 @@
+{
+  "value": [
+    {
+      "id": "00000000-0000-4000-8000-000000000101",
+      "displayName": "DER - GRP - 010 - Pilot Devices",
+      "description": "Synthetic pre-existing customer group fixture.",
+      "mailEnabled": false,
+      "mailNickname": "pilotdevices",
+      "securityEnabled": true,
+      "groupTypes": []
+    }
+  ]
+}

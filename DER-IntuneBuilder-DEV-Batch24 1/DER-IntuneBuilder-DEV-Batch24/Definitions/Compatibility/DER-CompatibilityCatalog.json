@@ -1,0 +1,458 @@
+{
+  "schemaVersion": "1.0",
+  "catalogVersion": "1.0.0",
+  "generatedForBaseline": "1.0.0",
+  "safePreviewPolicy": {
+    "default": "Deny beta writes unless an enabled catalog entry matches module, method and normalized relative URI.",
+    "v1Writes": "Allowed only through the central DER Graph engine and workload safety checks.",
+    "betaReads": "Allowed for discovery/resolution; beta writes require allowlist coverage.",
+    "allowPreviewApisQuestionnaireGate": true
+  },
+  "entries": [
+    {
+      "id": "AN-001",
+      "module": "Analytics",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/deviceConfigurations(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "AP-001",
+      "module": "Autopilot",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/windowsAutopilotDeploymentProfiles(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "AP-002",
+      "module": "Autopilot",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^deviceManagement/deviceEnrollmentConfigurations(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "AUTH-001",
+      "module": "AuthenticationMethods",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^policies/authenticationMethodsPolicy/authenticationMethodConfigurations(?:/[^/?]+)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CA-001",
+      "module": "ConditionalAccess",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^identity/conditionalAccess/policies(?:/[^/?]+)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CAT-001",
+      "module": "Defender",
+      "apiVersion": "beta",
+      "methods": [
+        "GET"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicyTemplates(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CAT-002",
+      "module": "ASR",
+      "apiVersion": "beta",
+      "methods": [
+        "GET"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicyTemplates(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CAT-003",
+      "module": "Firewall",
+      "apiVersion": "beta",
+      "methods": [
+        "GET"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicyTemplates(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CAT-004",
+      "module": "Configuration",
+      "apiVersion": "beta",
+      "methods": [
+        "GET"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationSettings(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CAT-005",
+      "module": "OneDrive",
+      "apiVersion": "beta",
+      "methods": [
+        "GET"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationSettings(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-001",
+      "module": "BitLocker",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-002",
+      "module": "LAPS",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-003",
+      "module": "Defender",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-004",
+      "module": "ASR",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-005",
+      "module": "Firewall",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-006",
+      "module": "Configuration",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-007",
+      "module": "OneDrive",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/configurationPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CFG-008",
+      "module": "DeliveryOptimization",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/deviceConfigurations(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "COMP-001",
+      "module": "Compliance",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/deviceCompliancePolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "CONSENT-001",
+      "module": "AppConsent",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "PUT"
+      ],
+      "relativeUriRegex": "^policies/adminConsentRequestPolicy$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "DRV-001",
+      "module": "Drivers",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/windowsDriverUpdateProfiles(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "ENR-001",
+      "module": "Enrollment",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/deviceEnrollmentConfigurations(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "ENR-MDM-001",
+      "module": "Enrollment",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^policies/mobileDeviceManagementPolicies(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "ENTRA-001",
+      "module": "EntraDevice",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "PUT"
+      ],
+      "relativeUriRegex": "^policies/deviceRegistrationPolicy$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "GRP-001",
+      "module": "Groups",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "POST"
+      ],
+      "relativeUriRegex": "^groups(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "GUEST-001",
+      "module": "GuestExternal",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^policies/authorizationPolicy$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "LOC-001",
+      "module": "NamedLocations",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^identity/conditionalAccess/namedLocations(?:/[^/?]+)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "PIM-001",
+      "module": "PIM",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^policies/roleManagementPolicies(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "PIM-002",
+      "module": "PIM",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET"
+      ],
+      "relativeUriRegex": "^roleManagement/directory/roleDefinitions(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "TEN-001",
+      "module": "TenantSettings",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/managedDeviceCleanupRules(?:/[^/?]+)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "TEN-002",
+      "module": "TenantSettings",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^deviceManagement/intuneBrandingProfiles(?:/[^/?]+)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "WU-001",
+      "module": "Updates",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^deviceManagement/deviceConfigurations(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "WU-002",
+      "module": "Updates",
+      "apiVersion": "beta",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH",
+        "DELETE"
+      ],
+      "relativeUriRegex": "^deviceManagement/windowsFeatureUpdateProfiles(?:/[^/?]+)?(?:/.*)?$",
+      "previewWriteAllowed": true,
+      "status": "DER-Tested-Development"
+    },
+    {
+      "id": "XT-001",
+      "module": "GuestExternal",
+      "apiVersion": "v1.0",
+      "methods": [
+        "GET",
+        "POST",
+        "PATCH"
+      ],
+      "relativeUriRegex": "^policies/crossTenantAccessPolicy(?:/.*)?$",
+      "previewWriteAllowed": false,
+      "status": "DER-Tested-Development"
+    }
+  ],
+  "manualOnlyModules": [
+    "PasswordProtection",
+    "LoggingIntegration"
+  ],
+  "notes": [
+    "Catalog is an internal DER safety contract, not a statement that Microsoft Graph beta APIs are stable.",
+    "A matching catalog entry never overrides ownership, tenant, pilot-first, or final approval safety gates."
+  ]
+}

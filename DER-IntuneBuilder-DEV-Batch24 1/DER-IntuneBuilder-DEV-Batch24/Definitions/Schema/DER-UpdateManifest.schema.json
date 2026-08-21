@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.example.invalid/schema/DER-UpdateManifest.schema.json",
+  "title": "DER Update Manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "updateManifestVersion",
+    "packageVersion",
+    "buildNumber",
+    "channel",
+    "engineVersion",
+    "baselineVersion",
+    "releaseDate",
+    "runtime",
+    "dependencies",
+    "updatePolicy",
+    "compatibility"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "updateManifestVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "packageVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "buildNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "channel": {
+      "enum": [
+        "Development",
+        "Release"
+      ]
+    },
+    "engineVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "baselineVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "releaseDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "minimumPowerShell",
+        "bootstrapPowerShell",
+        "bootstrapPowerShellMsiSHA256",
+        "platform"
+      ],
+      "properties": {
+        "minimumPowerShell": {
+          "type": "string"
+        },
+        "bootstrapPowerShell": {
+          "type": "string"
+        },
+        "platform": {
+          "const": "Windows"
+        },
+        "bootstrapPowerShellMsiSHA256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "lockVersion",
+        "lockPath"
+      ],
+      "properties": {
+        "lockVersion": {
+          "type": "string"
+        },
+        "lockPath": {
+          "const": "Definitions/Package/DER-DependencyLock.json"
+        }
+      }
+    },
+    "updatePolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "automaticCheck",
+        "automaticDownload",
+        "automaticExecute",
+        "policy"
+      ],
+      "properties": {
+        "automaticCheck": {
+          "const": false
+        },
+        "automaticDownload": {
+          "const": false
+        },
+        "automaticExecute": {
+          "const": false
+        },
+        "policy": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "compatibility": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "definitionSchema",
+        "portableState",
+        "graphCompatibilityCatalog",
+        "recoveryJournal",
+        "testTenantIntegrationPolicy",
+        "canaryPilotPolicy",
+        "workloadPilotPolicy",
+        "devFreezePolicy"
+      ],
+      "properties": {
+        "definitionSchema": {
+          "type": "string"
+        },
+        "portableState": {
+          "type": "string"
+        },
+        "graphCompatibilityCatalog": {
+          "type": "string"
+        },
+        "recoveryJournal": {
+          "type": "string"
+        },
+        "testTenantIntegrationPolicy": {
+          "const": "1.0.0"
+        },
+        "canaryPilotPolicy": {
+          "const": "1.0.0"
+        },
+        "workloadPilotPolicy": {
+          "const": "1.0.0"
+        },
+        "devFreezePolicy": {
+          "const": "1.0.0"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "lockVersion": "1.0.0",
+  "generatedForEngine": "1.0.0-dev",
+  "dependencies": [
+    {
+      "name": "Microsoft.Graph.Authentication",
+      "version": "2.36.1",
+      "moduleGuid": "883916f2-9184-46ee-b1f8-b6a2fb784cee",
+      "repository": "PSGallery",
+      "publisher": "Microsoft",
+      "galleryOwner": "msgraph-sdk-powershell",
+      "requiredCommands": [
+        "Connect-MgGraph",
+        "Disconnect-MgGraph",
+        "Get-MgContext",
+        "Invoke-MgGraphRequest"
+      ],
+      "acquisition": {
+        "preferredCmdlet": "Save-PSResource",
+        "authenticodeCheckRequired": true,
+        "saveModuleAllowed": false,
+        "isolatedRuntimeCache": true
+      },
+      "runtimeIntegrity": {
+        "manifestAuthenticodeRequired": true,
+        "contentLockRequired": true,
+        "manifestSignerSimpleName": "Microsoft Corporation"
+      }
+    }
+  ]
+}

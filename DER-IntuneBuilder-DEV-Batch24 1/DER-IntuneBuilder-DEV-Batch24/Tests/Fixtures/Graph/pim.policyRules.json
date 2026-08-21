@@ -1,0 +1,17 @@
+{
+  "value": [
+    {
+      "@odata.type": "#microsoft.graph.unifiedRoleManagementPolicyEnablementRule",
+      "id": "Enablement_EndUser_Assignment",
+      "enabledRules": [
+        "Justification"
+      ]
+    },
+    {
+      "@odata.type": "#microsoft.graph.unifiedRoleManagementPolicyExpirationRule",
+      "id": "Expiration_EndUser_Assignment",
+      "isExpirationRequired": true,
+      "maximumDuration": "PT8H"
+    }
+  ]
+}

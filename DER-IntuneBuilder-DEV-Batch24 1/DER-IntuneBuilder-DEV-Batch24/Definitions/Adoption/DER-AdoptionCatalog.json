@@ -1,0 +1,255 @@
+{
+  "schemaVersion": "1.0",
+  "catalogVersion": "1.0.0",
+  "generatedForBaseline": "1.0.0",
+  "semantics": {
+    "matchRule": "Exact planned display name plus explicit Microsoft ObjectId decision",
+    "ownershipRule": "Names never establish DER ownership. Adoption requires an explicit engineer decision tied to the exact candidate ObjectId.",
+    "tenantWriteDuringAdoption": false,
+    "assignmentsChangedDuringAdoption": false,
+    "partialComparisonRequiresExtraAcknowledgement": true
+  },
+  "entries": [
+    {
+      "module": "Groups",
+      "objectTypes": [
+        "SecurityGroup",
+        "DynamicSecurityGroup"
+      ],
+      "apiVersion": "v1.0",
+      "collectionUri": "groups",
+      "itemUriTemplate": "groups/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "Groups",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Enrollment",
+      "objectTypes": [
+        "EnrollmentRestriction"
+      ],
+      "apiVersion": "v1.0",
+      "collectionUri": "deviceManagement/deviceEnrollmentConfigurations",
+      "itemUriTemplate": "deviceManagement/deviceEnrollmentConfigurations/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "EnrollmentRestriction",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Enrollment",
+      "objectTypes": [
+        "EnrollmentLimit"
+      ],
+      "apiVersion": "v1.0",
+      "collectionUri": "deviceManagement/deviceEnrollmentConfigurations",
+      "itemUriTemplate": "deviceManagement/deviceEnrollmentConfigurations/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "EnrollmentLimit",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Autopilot",
+      "objectTypes": [
+        "AutopilotProfile"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/windowsAutopilotDeploymentProfiles",
+      "itemUriTemplate": "deviceManagement/windowsAutopilotDeploymentProfiles/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "AutopilotProfile",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Autopilot",
+      "objectTypes": [
+        "EnrollmentStatusPage"
+      ],
+      "apiVersion": "v1.0",
+      "collectionUri": "deviceManagement/deviceEnrollmentConfigurations",
+      "itemUriTemplate": "deviceManagement/deviceEnrollmentConfigurations/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "EnrollmentStatusPage",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Compliance",
+      "objectTypes": [
+        "CompliancePolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/deviceCompliancePolicies",
+      "itemUriTemplate": "deviceManagement/deviceCompliancePolicies/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "Compliance",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "BitLocker",
+      "objectTypes": [
+        "EndpointSecurityPolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/configurationPolicies",
+      "itemUriTemplate": "deviceManagement/configurationPolicies/{id}",
+      "nameProperty": "name",
+      "comparisonProfile": "SettingsCatalogTopLevel",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "LAPS",
+      "objectTypes": [
+        "EndpointSecurityPolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/configurationPolicies",
+      "itemUriTemplate": "deviceManagement/configurationPolicies/{id}",
+      "nameProperty": "name",
+      "comparisonProfile": "SettingsCatalogTopLevel",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "Defender",
+      "objectTypes": [
+        "EndpointSecurityPolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/configurationPolicies",
+      "itemUriTemplate": "deviceManagement/configurationPolicies/{id}",
+      "nameProperty": "name",
+      "comparisonProfile": "SettingsCatalogTopLevel",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "ASR",
+      "objectTypes": [
+        "EndpointSecurityPolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/configurationPolicies",
+      "itemUriTemplate": "deviceManagement/configurationPolicies/{id}",
+      "nameProperty": "name",
+      "comparisonProfile": "SettingsCatalogTopLevel",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "Firewall",
+      "objectTypes": [
+        "EndpointSecurityPolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/configurationPolicies",
+      "itemUriTemplate": "deviceManagement/configurationPolicies/{id}",
+      "nameProperty": "name",
+      "comparisonProfile": "SettingsCatalogTopLevel",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "Configuration",
+      "objectTypes": [
+        "SettingsCatalogPolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/configurationPolicies",
+      "itemUriTemplate": "deviceManagement/configurationPolicies/{id}",
+      "nameProperty": "name",
+      "comparisonProfile": "SettingsCatalogTopLevel",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "NamedLocations",
+      "objectTypes": [
+        "NamedLocation"
+      ],
+      "apiVersion": "v1.0",
+      "collectionUri": "identity/conditionalAccess/namedLocations",
+      "itemUriTemplate": "identity/conditionalAccess/namedLocations/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "NamedLocation",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "ConditionalAccess",
+      "objectTypes": [
+        "ConditionalAccessPolicy"
+      ],
+      "apiVersion": "v1.0",
+      "collectionUri": "identity/conditionalAccess/policies",
+      "itemUriTemplate": "identity/conditionalAccess/policies/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "ConditionalAccessSafety",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "Updates",
+      "objectTypes": [
+        "UpdateRing"
+      ],
+      "apiVersion": "v1.0",
+      "collectionUri": "deviceManagement/deviceConfigurations",
+      "itemUriTemplate": "deviceManagement/deviceConfigurations/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "UpdateRing",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Updates",
+      "objectTypes": [
+        "FeatureUpdatePolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/windowsFeatureUpdateProfiles",
+      "itemUriTemplate": "deviceManagement/windowsFeatureUpdateProfiles/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "FeatureUpdate",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Drivers",
+      "objectTypes": [
+        "DriverUpdatePolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/windowsDriverUpdateProfiles",
+      "itemUriTemplate": "deviceManagement/windowsDriverUpdateProfiles/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "DriverUpdate",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "OneDrive",
+      "objectTypes": [
+        "SettingsCatalogPolicy"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/configurationPolicies",
+      "itemUriTemplate": "deviceManagement/configurationPolicies/{id}",
+      "nameProperty": "name",
+      "comparisonProfile": "SettingsCatalogTopLevel",
+      "comparisonScope": "IdentityAndTopLevel"
+    },
+    {
+      "module": "DeliveryOptimization",
+      "objectTypes": [
+        "DeliveryOptimizationConfiguration"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/deviceConfigurations",
+      "itemUriTemplate": "deviceManagement/deviceConfigurations/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "DeliveryOptimization",
+      "comparisonScope": "ConfigurationBody"
+    },
+    {
+      "module": "Analytics",
+      "objectTypes": [
+        "EndpointAnalyticsSettings"
+      ],
+      "apiVersion": "beta",
+      "collectionUri": "deviceManagement/deviceConfigurations",
+      "itemUriTemplate": "deviceManagement/deviceConfigurations/{id}",
+      "nameProperty": "displayName",
+      "comparisonProfile": "Analytics",
+      "comparisonScope": "ConfigurationBody"
+    }
+  ]
+}

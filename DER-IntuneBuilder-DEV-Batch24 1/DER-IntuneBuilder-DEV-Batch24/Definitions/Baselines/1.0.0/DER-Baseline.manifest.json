@@ -1,0 +1,18 @@
+{
+  "schemaVersion": "1.0",
+  "baselineVersion": "1.0.0",
+  "manifestVersion": "1.0",
+  "algorithm": "SHA256",
+  "files": [
+    {
+      "path": "DER-Baseline.json",
+      "sha256": "c2af619f2de39a47d743abb7dd531f085bb68d18c657b4107f2949a720fb6757",
+      "bytes": 5184
+    },
+    {
+      "path": "DER-Baseline.index.json",
+      "sha256": "f809fad34cd5131e50299bf286b1ce9db2ab70d3d0c58748190ff34987714f0f",
+      "bytes": 21234
+    }
+  ]
+}

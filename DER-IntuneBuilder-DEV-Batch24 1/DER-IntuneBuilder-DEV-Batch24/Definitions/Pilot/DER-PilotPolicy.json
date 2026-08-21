@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "1.0.0",
+  "generatedForPackage": "1.0.0-dev",
+  "generatedForBuild": 24,
+  "purpose": "Execute one real DER Groups workload object in a disposable test tenant, validate state/read-back, invoke exact-object DER rollback, purge the exact tombstone, and prove the tenant returns to the pre-pilot object state.",
+  "prerequisites": {
+    "noWriteEvidenceType": "DER-TestTenant-NoWrite",
+    "canaryEvidenceType": "DER-Canary-Pilot",
+    "sameTenantRequired": true,
+    "samePackageRequired": true,
+    "packageManifestHashMatchRequired": true,
+    "noWriteMustPass": true,
+    "canaryMustPass": true,
+    "canaryCleanupMustBeComplete": true
+  },
+  "operator": {
+    "confirmationToken": "PILOT-WRITE",
+    "requiredRoles": [
+      "Groups Administrator",
+      "User Administrator",
+      "Privileged Role Administrator",
+      "Global Administrator"
+    ],
+    "recommendation": "Use Groups Administrator where practical. The pilot group is not role-assignable and receives no members or assignments."
+  },
+  "workload": {
+    "module": "Groups",
+    "entryPoint": "Invoke-DERGroupsModule",
+    "rollbackEntryPoint": "Invoke-DERModuleRollback",
+    "derId": "DER-PILOT-GRP-001",
+    "objectType": "SecurityGroup",
+    "displayNamePrefix": "DER Pilot - DELETE ME - ",
+    "membership": "Assigned",
+    "principalType": "Device",
+    "existingObjectMutationAllowed": false,
+    "membersAllowed": false,
+    "assignmentsAllowed": false,
+    "dynamicMembershipAllowed": false,
+    "roleAssignableAllowed": false
+  },
+  "graph": {
+    "apiVersion": "v1.0",
+    "requiredDelegatedScopes": [
+      "Group.ReadWrite.All",
+      "Organization.Read.All"
+    ],
+    "controlledObjectCount": 1,
+    "expectedMutationDelta": {
+      "POST": 1,
+      "PATCH": 0,
+      "PUT": 0,
+      "DELETE": 2
+    },
+    "expectedWorkloadCreateCount": 1,
+    "expectedRollbackDeleteCount": 1,
+    "expectedPermanentPurgeCount": 1
+  },
+  "rollback": {
+    "exactDerIdFilterRequired": true,
+    "exactObjectIdFilterRequired": true,
+    "normalRollbackEngineRequired": true,
+    "verifyActiveObjectAbsent": true,
+    "verifyStateRecordRemoved": true,
+    "verifyDeletedItemIdentityBeforePurge": true,
+    "permanentPurgeRequired": true,
+    "failureIfAnyPilotObjectRemains": true
+  },
+  "evidence": {
+    "schema": "Definitions/Schema/DER-PilotEvidence.schema.json",
+    "jsonFile": "DER-PilotEvidence.json",
+    "htmlFile": "DER-PilotEvidence.html",
+    "stepsCsvFile": "DER-PilotSteps.csv"
+  }
+}

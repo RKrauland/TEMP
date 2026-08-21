@@ -1,0 +1,68 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "1.0.0",
+  "generatedForPackage": "1.0.0-dev",
+  "generatedForBuild": 24,
+  "lifecycleStatus": "FeatureCompleteDevelopment",
+  "purpose": "Define the DER v1 feature freeze and the external validation gates required before any production-release decision.",
+  "featureFreeze": {
+    "newTenantFeaturesAllowed": false,
+    "workloadDefinitionsFrozen": true,
+    "baselineVersion": "1.0.0",
+    "allowedPostFreezeChanges": [
+      "DefectFix",
+      "TestFix",
+      "DocumentationCorrection",
+      "CompatibilityCorrection",
+      "SecurityFix"
+    ],
+    "policy": "The DER v1 tenant-feature scope is frozen. Development builds may contain defect, security, compatibility, test, observability, and documentation corrections only unless the project owner explicitly reopens feature scope."
+  },
+  "packageIdentity": {
+    "engineVersion": "1.0.0-dev",
+    "buildNumber": 24,
+    "coreModules": 19,
+    "workloadModules": 25,
+    "parentModules": 44
+  },
+  "requiredGates": [
+    {
+      "order": 1,
+      "id": "WindowsSmoke",
+      "command": ".\\Start-DERIntuneBuilder.ps1 -SmokeTestOnly -InstallTestDependencies",
+      "evidence": "DER-WindowsSmokeTest.json",
+      "requiredResult": "PASS",
+      "tenantMutationAllowed": false
+    },
+    {
+      "order": 2,
+      "id": "TenantNoWrite",
+      "command": ".\\Start-DERIntuneBuilder.ps1 -TenantIntegrationTest",
+      "evidence": "DER-NoWriteEvidence.json",
+      "requiredResult": "PASS",
+      "tenantMutationAllowed": false
+    },
+    {
+      "order": 3,
+      "id": "TenantCanary",
+      "command": ".\\Start-DERIntuneBuilder.ps1 -TenantCanaryTest -NoWriteEvidencePath <path>",
+      "evidence": "DER-CanaryEvidence.json",
+      "requiredResult": "PASS",
+      "tenantMutationAllowed": true
+    },
+    {
+      "order": 4,
+      "id": "TenantPilot",
+      "command": ".\\Start-DERIntuneBuilder.ps1 -TenantPilotTest -NoWriteEvidencePath <path> -CanaryEvidencePath <path>",
+      "evidence": "DER-PilotEvidence.json",
+      "requiredResult": "PASS",
+      "tenantMutationAllowed": true
+    }
+  ],
+  "productionRelease": {
+    "ready": false,
+    "reason": "DER v1 remains a Development-channel package until the required Windows and disposable-tenant gates pass, identified defects are resolved, and an approved signed Release package is produced under DER-SigningPolicy.json.",
+    "signedReleaseRequired": true,
+    "realCustomerTenantWriteAllowedBeforeGatesPass": false
+  }
+}

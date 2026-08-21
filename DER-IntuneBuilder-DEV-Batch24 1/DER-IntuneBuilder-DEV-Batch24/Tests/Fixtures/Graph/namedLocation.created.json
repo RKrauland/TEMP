@@ -1,0 +1,12 @@
+{
+  "@odata.type": "#microsoft.graph.ipNamedLocation",
+  "id": "00000000-0000-4000-8000-000000000601",
+  "displayName": "DER - LOC - 010 - HQ",
+  "isTrusted": false,
+  "ipRanges": [
+    {
+      "@odata.type": "#microsoft.graph.iPv4CidrRange",
+      "cidrAddress": "203.0.113.0/24"
+    }
+  ]
+}

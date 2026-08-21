@@ -1,0 +1,9 @@
+{
+  "id": "00000000-0000-4000-8000-000000000102",
+  "displayName": "DER - GRP - 010 - Pilot Devices",
+  "description": "Standard security group for tenant management and policy targeting.",
+  "mailEnabled": false,
+  "mailNickname": "DER-GRP-010-PilotDevices-fixture",
+  "securityEnabled": true,
+  "groupTypes": []
+}

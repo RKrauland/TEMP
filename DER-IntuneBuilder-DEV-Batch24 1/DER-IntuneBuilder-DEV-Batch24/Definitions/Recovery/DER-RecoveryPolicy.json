@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "1.0.0",
+  "generatedForBaseline": "1.0.0",
+  "journalVersion": "1.1",
+  "semantics": {
+    "graphWriteReplayAllowed": false,
+    "serializedRequestReplayAllowed": false,
+    "freshDiscoveryRequired": true,
+    "namesEstablishOwnership": false,
+    "activePriorProcessBlocks": true,
+    "invalidJournalBlocks": true,
+    "uncertainWriteRequiresExplicitReconcile": true,
+    "resumeMeaning": "Fresh Microsoft discovery and current-state reconciliation. A prior Graph mutation is never replayed from the journal."
+  },
+  "dispositions": [
+    {
+      "name": "PreserveCommitted",
+      "risk": "None",
+      "terminalPhases": ["COMMIT"],
+      "requiresExplicitReconcile": false,
+      "behavior": "Preserve the committed outcome and verify through fresh discovery/current state."
+    },
+    {
+      "name": "PreserveRolledBack",
+      "risk": "None",
+      "terminalPhases": ["ROLLBACK_VALIDATE"],
+      "requiresExplicitReconcile": false,
+      "behavior": "Preserve the validated rollback outcome."
+    },
+    {
+      "name": "PreserveSkipped",
+      "risk": "None",
+      "terminalPhases": ["SKIP"],
+      "requiresExplicitReconcile": false,
+      "behavior": "No prior tenant write is assumed; current planning decides whether work is still needed."
+    },
+    {
+      "name": "SafeToReplan",
+      "risk": "Low",
+      "terminalPhases": [],
+      "requiresExplicitReconcile": false,
+      "behavior": "Only planning/precheck activity was recorded. Replan after fresh discovery."
+    },
+    {
+      "name": "ReconcileFailed",
+      "risk": "HighWhenWritePossible",
+      "terminalPhases": ["FAIL"],
+      "requiresExplicitReconcile": true,
+      "behavior": "Do not replay. Rediscover Microsoft state and reconcile any side effect that may have occurred before failure."
+    },
+    {
+      "name": "ReconcileUncertainWrite",
+      "risk": "High",
+      "terminalPhases": [],
+      "requiresExplicitReconcile": true,
+      "behavior": "A write may have reached Microsoft without a terminal transaction marker. Explicit reconciliation approval is required."
+    },
+    {
+      "name": "ReconcileUncertainRollback",
+      "risk": "High",
+      "terminalPhases": [],
+      "requiresExplicitReconcile": true,
+      "behavior": "Rollback began without a validated terminal marker. Rediscover and reconcile; never replay the rollback body."
+    },
+    {
+      "name": "JournalInvalid",
+      "risk": "Critical",
+      "terminalPhases": [],
+      "requiresExplicitReconcile": true,
+      "behavior": "Stop. The journal is malformed or contradictory and must be reviewed before another tenant build."
+    }
+  ]
+}

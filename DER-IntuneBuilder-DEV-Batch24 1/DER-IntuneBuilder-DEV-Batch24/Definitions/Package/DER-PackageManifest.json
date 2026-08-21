@@ -1,0 +1,899 @@
+{
+  "schemaVersion": "1.0",
+  "packageVersion": "1.0.0-dev",
+  "buildNumber": 24,
+  "channel": "Development",
+  "engineVersion": "1.0.0-dev",
+  "baselineVersion": "1.0.0",
+  "generatedUtc": "2026-08-20T21:17:23.496321Z",
+  "hashAlgorithm": "SHA256",
+  "trustAnchor": {
+    "relativePath": "Start-DERIntuneBuilder.ps1",
+    "manifestHashConstant": "DERPackageManifestSHA256",
+    "design": "The parent launcher pins this manifest hash. Release packages Authenticode-sign the parent after this hash is embedded; the manifest then pins all protected child/package content."
+  },
+  "protectedFiles": [
+    {
+      "path": "BUILD-STATUS.md",
+      "sha256": "c767752fe336595eb1a7422ecb3d0ac96b280dfb8802ff181c79f703e201ae27",
+      "bytes": 5669,
+      "role": "Metadata"
+    },
+    {
+      "path": "Core/DER.Adoption.psm1",
+      "sha256": "b3dc47d775b0d84f0407cb67dfac20c0d8773c971ee627fb3d378d3c2b017003",
+      "bytes": 32258,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Analysis.psm1",
+      "sha256": "0ad52535284857ce8f5ba60a9a3b322b6d3e73b2d3d1f90bd4cbfa68ac4d5733",
+      "bytes": 20188,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Authentication.psm1",
+      "sha256": "30d4efd69404c93294487b6d2552c42cedb32add4654fecae26add6b7ce4611f",
+      "bytes": 14781,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Canary.psm1",
+      "sha256": "96adb31b7874be096fd2f5cdcb55a940c42ba96f3d76227dbe67603dfac98aed",
+      "bytes": 29181,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Discovery.psm1",
+      "sha256": "01bf8dd3be1c7f2b60ce89b3c939902dddc7cd169335ee3795fc65fa0cbe79c9",
+      "bytes": 21795,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.DryRun.psm1",
+      "sha256": "114050182220e1231232dfcfed61c5f6f3f40aac1892868292bd4ad67103d8f0",
+      "bytes": 15925,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Graph.psm1",
+      "sha256": "ab81ddd10b60b337e58c3030c6520c956f10554dc48a5c0bea818154bff3b3ed",
+      "bytes": 51060,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.IntegrationTest.psm1",
+      "sha256": "78cf380444043c7765ef32acdf1eefe83fbcc222cd8afab6695841a8c8df75b7",
+      "bytes": 21154,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Logging.psm1",
+      "sha256": "3b9a289acd88c341ad2077c9db7cada1b24db791d6f2b31623a5caabcdfef827",
+      "bytes": 44093,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Permissions.psm1",
+      "sha256": "3f53517a1d37a6dd57393ade20cd42976d40fcfbd9ab3d8aaa29107ca7e0c2fe",
+      "bytes": 5898,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Pilot.psm1",
+      "sha256": "363c095de1ac03a990859afb893c10307498a8728b79acb640a567af947e95fe",
+      "bytes": 31581,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Planner.psm1",
+      "sha256": "28c615aa23b3f213ff4d8e9978c1e44d0b7bc46d2d125ccc0e7827811ca3a3f1",
+      "bytes": 25345,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Questionnaire.psm1",
+      "sha256": "dae184b6f6599d68d7887cc135e885d1fd73d8bf1413826564b63cf5d91386be",
+      "bytes": 31582,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Recovery.psm1",
+      "sha256": "bc05854defae816ef3c5c5a264277981907ae242282d0f0a52ad353559915cec",
+      "bytes": 25376,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Reporting.psm1",
+      "sha256": "53af9cd12fe0371458cf1db5796033c09fdf751d6c2d5441077f354c12562862",
+      "bytes": 28412,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Rollback.psm1",
+      "sha256": "e4b978055d378009f67ccd9c50a0ff77565bb2b6b7731127b859cdef5f57d200",
+      "bytes": 32361,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Snapshot.psm1",
+      "sha256": "4631c3a3d37c2bf08762d6596a611a3283bc2a8092953adda0e1565df2d5aec7",
+      "bytes": 17067,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.State.psm1",
+      "sha256": "e028aef03f4fb905997cff20cb186fc519b894a8113538cd2107a4e2a4cfad39",
+      "bytes": 49047,
+      "role": "Core"
+    },
+    {
+      "path": "Core/DER.Validation.psm1",
+      "sha256": "155dbbc50e5e9acfd7422c99eea05a646aa51074bf2b0eff5478645c6d3d0803",
+      "bytes": 27062,
+      "role": "Core"
+    },
+    {
+      "path": "Definitions/Adoption/DER-AdoptionCatalog.json",
+      "sha256": "846a8ef9af3b20f480af1159995f5824df7b4e02346b9c3a74b7bd8c3bac71f6",
+      "bytes": 8567,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Baselines/1.0.0/DER-Baseline.index.json",
+      "sha256": "f809fad34cd5131e50299bf286b1ce9db2ab70d3d0c58748190ff34987714f0f",
+      "bytes": 21234,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Baselines/1.0.0/DER-Baseline.json",
+      "sha256": "c2af619f2de39a47d743abb7dd531f085bb68d18c657b4107f2949a720fb6757",
+      "bytes": 5184,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Baselines/1.0.0/DER-Baseline.manifest.json",
+      "sha256": "eb76f7a85d02c560e5a4a99e5ee260f643536b9bfc15948d6c5d770bb8731953",
+      "bytes": 440,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Canary/DER-CanaryPolicy.json",
+      "sha256": "e7c49d573d24b81e2d606c2aae7a687365faaaea12c3ab357c1fb1a0eef512d4",
+      "bytes": 2239,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Compatibility/DER-CompatibilityCatalog.json",
+      "sha256": "c5e52d4ad929899b614ec8746ae37d4c600d6eda1564a5249e9b88d5cf5c5a22",
+      "bytes": 12008,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Integration/DER-TestTenantIntegrationPolicy.json",
+      "sha256": "99e3936ee7ca2d56ac0ac78b1e1803f05a3cccf8fd4b3b4a21145a56e11f23ed",
+      "bytes": 2208,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Package/DER-DependencyLock.json",
+      "sha256": "261c059041ccbd249a838bdcd807c66f70d4fb5d1680c0dbb35a32d5f2953778",
+      "bytes": 901,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Package/DER-SigningPolicy.json",
+      "sha256": "c43df19a3d490ea3bf4b37533e11d765a05432e69e2623ec5b41fb769e1b5779",
+      "bytes": 1017,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Package/DER-UpdateManifest.json",
+      "sha256": "0d2df2de1f7c7fe59965439715697f4a2280d414ee4849f82d129e219c6b6d10",
+      "bytes": 1190,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Pilot/DER-PilotPolicy.json",
+      "sha256": "df9ce5305bdf9beb09157d59a19e761e99089a8323f88d8e60f4d056688158ba",
+      "bytes": 2513,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Portal/DER-PortalPathCatalog.json",
+      "sha256": "cd86045fe72b7654e3ae203c19f45785d06f248f5d720ee894e6a9398a07ba98",
+      "bytes": 15459,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Recovery/DER-RecoveryPolicy.json",
+      "sha256": "e98e923f507bc97667a9c891d7b7ea0bd846b6add54a8460db6fdf640a15f166",
+      "bytes": 2654,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Release/DER-DevFreezePolicy.json",
+      "sha256": "0f5a2119d08c6a06e1b152272f4de887b45c0ddd5e4c1260c3a1075673bab381",
+      "bytes": 2480,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Schema/DER-AdoptionCatalog.schema.json",
+      "sha256": "e79140e600f5242cc66c8ea76ddb1c7844893abdec867ce8a4cc3705184c324f",
+      "bytes": 2705,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-AdoptionDecisions.schema.json",
+      "sha256": "d52d4e002dad2d13e355b0fd66e6a388f9847a026a9faa81926075ba78c31291",
+      "bytes": 1822,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-CanaryEvidence.schema.json",
+      "sha256": "ccdf46caf8c4d09ba476544f13bccc16ac60f99a53411f4f94638ec3b8c4083d",
+      "bytes": 3919,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-CanaryPolicy.schema.json",
+      "sha256": "31d695343b583ab5792b5f58177ba1b9e59adf9b62738e7876164d402a04c690",
+      "bytes": 3042,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-Definition.schema.json",
+      "sha256": "50fad9d60f683ee11db5c8a8f324831aa6c775706f2218a52c1cf0a0383df270",
+      "bytes": 3860,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-DependencyLock.schema.json",
+      "sha256": "7da066dc0d4cdc232b37ba6e6f9fcc294709d9ab32d8a67bcf3e0ea0f39b177e",
+      "bytes": 2931,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-DevCertification.schema.json",
+      "sha256": "8c82a40849349208fadf63fee45c801a73eb482d5e9f1c134869593266f33a20",
+      "bytes": 2655,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-DevFreezePolicy.schema.json",
+      "sha256": "13f6c22b31d4ab192aaff0373f3a5313b638be8cf354de1c0c70b366dbbbf9be",
+      "bytes": 4098,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-NoWriteEvidence.schema.json",
+      "sha256": "361972fea6bb921ecbd6c34b39afa77335fddec1318f3181c0fbd180d3d75b0a",
+      "bytes": 5197,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-PackageManifest.schema.json",
+      "sha256": "16671cea9f22f0b4f6c5c397f6e087e4c7054c6a81db41a19fc6fa4aa0b961be",
+      "bytes": 2476,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-PilotEvidence.schema.json",
+      "sha256": "d7c70958b65041aa196a9313278c9ed0f3004ec9f175c60fe66c5a485594b3c9",
+      "bytes": 5036,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-PilotPolicy.schema.json",
+      "sha256": "8e592b8dc323006edf60fe855a0921258631f68f30f9f6d6d2b943dd846dc9fd",
+      "bytes": 4321,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-PortableState.schema.json",
+      "sha256": "1e6375b7152e3483204e87d364ad19e7dda55577fd772b8cc052a6e0eb7fde34",
+      "bytes": 1911,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-PortalPathCatalog.schema.json",
+      "sha256": "634f38596af4beff4b2c69c9a3a3a3f64539599f7d75efed46be3f685c9a9bdf",
+      "bytes": 2899,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-RecoveryPolicy.schema.json",
+      "sha256": "7a5221c940872fd7ec540830a393bf01bb2d164085ee497352f59a3c106b2e68",
+      "bytes": 2190,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-ReportTemplates.schema.json",
+      "sha256": "a9e1ca7e190ed2adcaaf9deb08c0e0eddff58547efd931e0c0f5ea238318eb69",
+      "bytes": 1427,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-SchemaBindings.schema.json",
+      "sha256": "9c519ed000087bf20e05fa89826c3afe6b8c02e10fbc8848a32c30ba8d3a7ec6",
+      "bytes": 1957,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-SigningPolicy.schema.json",
+      "sha256": "1930755063dbaad8386d1240cbf5254367e4b8ed92e4c300e157ad1c902a283c",
+      "bytes": 1945,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-TestFixtureCatalog.schema.json",
+      "sha256": "bc72f42211e1d2c20ae7a0d95b0411bf7767060cf8ef9e4ff7597f1bdadd43b4",
+      "bytes": 3248,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-TestTenantIntegrationPolicy.schema.json",
+      "sha256": "e92cbce31acb395f7de5f93c277c1812ad0edfe6ed8d559aa656ef3fdc433545",
+      "bytes": 5195,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-UpdateManifest.schema.json",
+      "sha256": "d51d845b0e8e19a31074c5ee2e5708435b41780b548a18e6851f1bc1166cdf8d",
+      "bytes": 3531,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Schema/DER-WindowsValidationPolicy.schema.json",
+      "sha256": "fc63187b13e2161b386d67c74cc0e14d8190c174cd64afcd97b24941fe9a555e",
+      "bytes": 7964,
+      "role": "Schema"
+    },
+    {
+      "path": "Definitions/Validation/DER-SchemaBindings.json",
+      "sha256": "b6db17eb0105a1981c3c0e53c1fd53cb0e7872596a228adccea6bf9542c6403d",
+      "bytes": 4534,
+      "role": "Definition"
+    },
+    {
+      "path": "Definitions/Validation/DER-WindowsValidationPolicy.json",
+      "sha256": "d803407a4bb13c458b79cbd83c91fa3d8817b5702f93d186461d3131a1d7a717",
+      "bytes": 2654,
+      "role": "Definition"
+    },
+    {
+      "path": "Docs/CANARY-PILOT-RUNBOOK.md",
+      "sha256": "d034d4a18eaeb515f9920e630dfaf7684ceded54627682368dbb03f17badf579",
+      "bytes": 1887,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/CONFIGURATION-REFERENCE.md",
+      "sha256": "adacfac57bfdf0ced003ac6af6a1c95551375cdfe690dc8bd7a4c52352e629a6",
+      "bytes": 5596,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/DEV-README.md",
+      "sha256": "c56a7fd45d9df4f5d151a01706f7283e8862020c3feb0d042c63164664bf3f1b",
+      "bytes": 12546,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/ENGINEERING-NOTES.md",
+      "sha256": "c0ee0f80f22cac38d086c7f072aa8b17ac497cb2843efc24960caea8206512dc",
+      "bytes": 10508,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/FINAL-OPERATOR-RUNBOOK.md",
+      "sha256": "5cb3d509278ea49ac439d2030f763a9dba7754fafda70dd80c4d92c83c545e4c",
+      "bytes": 4672,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/HANDOFF.md",
+      "sha256": "5b344653083a52278ce4d4f550afc2b49c2aeb2472742dbc0fb74854c69c4d05",
+      "bytes": 2989,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/LOGGING-REFERENCE.md",
+      "sha256": "4d7ec57cd3e035d0ab3917a564a1a0fc3f2b6d8421a7a748b945a14e51a17522",
+      "bytes": 9379,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/RELEASE-CHECKLIST.md",
+      "sha256": "bc6c6dbc387ae827a1588c7921861c028df11ab00046095bc6d9e4211bca9aba",
+      "bytes": 2425,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/TEST-TENANT-INTEGRATION-RUNBOOK.md",
+      "sha256": "77fc76f7df6fb04a95295b18ea78e7581f7fa5782526aefce312e5e8750e6425",
+      "bytes": 3909,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/WINDOWS-VALIDATION-RUNBOOK.md",
+      "sha256": "025e38a296c86690e800711ab1f852b19454b277a0ce69bb6f41f96cae1743d8",
+      "bytes": 3933,
+      "role": "Documentation"
+    },
+    {
+      "path": "Docs/WORKLOAD-PILOT-RUNBOOK.md",
+      "sha256": "b2c70e129cf87ee220efd49ce3e82b43784cf517edfcc7645c67a880c0eb255c",
+      "bytes": 2271,
+      "role": "Documentation"
+    },
+    {
+      "path": "PROJECT-STRUCTURE.txt",
+      "sha256": "05a4c44b59b7fb1b49ac3d57bfd4428b3c3db66ec4ba4902f80ed1dde024da05",
+      "bytes": 10989,
+      "role": "Metadata"
+    },
+    {
+      "path": "Templates/Reports/DER-ReportTemplates.json",
+      "sha256": "b65564d670d78358774614b4418428c51dae4a84840825507f9097b4aa211ff1",
+      "bytes": 1304,
+      "role": "Template"
+    },
+    {
+      "path": "Tests/DER.Adoption.Tests.ps1",
+      "sha256": "948fa1fcfd51bd8e3eb98125c32b1753f634691ce14eefbe8deffd95f4c250a8",
+      "bytes": 10202,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Canary.Tests.ps1",
+      "sha256": "965756bd30fe4510c45fb09fce9a45f4f51387028b28bfbfca02d7da53fa5c3c",
+      "bytes": 3344,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Core.Tests.ps1",
+      "sha256": "eb9d3d01aef67e5f1f2229e7e58803700e839c55f2b16d4e492c2815febec616",
+      "bytes": 10823,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Fixtures.Tests.ps1",
+      "sha256": "e03f43c73bf2d0803d71766f80fb7471cf9f40dc0a9a638b45c6914b84e01b36",
+      "bytes": 4851,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Integration.Tests.ps1",
+      "sha256": "5c49fcf7b96434c6b67ac5d21edb76aad69d0a1a201b9add7dcba7f61de9c2d9",
+      "bytes": 8810,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Logging.Tests.ps1",
+      "sha256": "00502d4257293626bc234cae0a67c931ba26ccc2af5c5f836b0fbf303ece1b94",
+      "bytes": 17392,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Package.Tests.ps1",
+      "sha256": "237fd758f3249db0d3cdee6be2977748b3ab51317bab2ff4f655bfcb03d44b86",
+      "bytes": 6477,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Pilot.Tests.ps1",
+      "sha256": "13941bfc6dcc485dc3dbddc153adaa7607aca77d6f2a8b16080b2cc44afe7cc8",
+      "bytes": 4542,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Recovery.Tests.ps1",
+      "sha256": "382d6caf756b96d64618d26c8e2e876eb14d1c6b7849f6e955f3ea26dcc64c12",
+      "bytes": 12511,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Release.Tests.ps1",
+      "sha256": "c14f56c0a0e1925f1d059760e33f243694851311cdbdacb95a3731bd7f449646",
+      "bytes": 4195,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Reporting.Tests.ps1",
+      "sha256": "4388a1bfc1d609a61c76504bb9b99f9ed68b9e515c40fb46ed27aa03ff08f894",
+      "bytes": 4366,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Safety.Tests.ps1",
+      "sha256": "bf1c7f2ea324356de5d878bf75cdd4d54b43e71154e00c6126224e99b46896c0",
+      "bytes": 5815,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.Stabilization.Tests.ps1",
+      "sha256": "0609b8c3cd50523b3ae6618ab2e43e7c5eb80cba75d595433130fc7e96ce910f",
+      "bytes": 50045,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.StateTransfer.Tests.ps1",
+      "sha256": "a25c2dad2033c9da5b1fcbcd5d1c0ccbb8b227bfa1476ba755768427bc953316",
+      "bytes": 6403,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.WindowsValidation.Tests.ps1",
+      "sha256": "50feef233b931029e5b8f3a6c86fb4430293ee9a5ee70267e34971f78a15de9d",
+      "bytes": 7934,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.WorkloadContracts.Tests.ps1",
+      "sha256": "7ba6dab197105cd9fff5351a0ced04eec7a5dc6401920d9b2fc2f51a252467a6",
+      "bytes": 9021,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/DER.WorkloadMocks.Tests.ps1",
+      "sha256": "6ffed5cad0eb2fda1d10d109d318549a81903535afd84c03b71735d4ac68608b",
+      "bytes": 10667,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Canary/DER-CanaryEvidence.sample.json",
+      "sha256": "76e8b7f8508bf4f45742a6188d64807c0b8f087c6f088cdc9e582bbce2c38beb",
+      "bytes": 1865,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/DER-GraphFixtureCatalog.json",
+      "sha256": "80a82f23db03753870c0edd169527d59c1d8bcb4812f0ee6b7cef3eaf7ec428d",
+      "bytes": 22621,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/adminConsent.policy.disabled.json",
+      "sha256": "25444ad61e1df0ee55fa827396b87ba60353eb4f77de86d483dd8741a147887b",
+      "bytes": 132,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/authMethods.authenticator.disabled.json",
+      "sha256": "59f828135fc300972f6475a463d4c79521a0f9a8f0910a0262c1a53c27fe9868",
+      "bytes": 108,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/authMethods.authenticator.enabled.json",
+      "sha256": "edaea754ec34e0d328798231a1ca92812c522ff3969038572c8e438d71782ed5",
+      "bytes": 210,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/collection.empty.json",
+      "sha256": "ba6b28ef7d9e13314d4d21bc8fe249beb4f59c92238972d2921789389a2e0d31",
+      "bytes": 18,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/conditionalAccess.authenticationStrengths.json",
+      "sha256": "606655df63ba1a82cd234cc26170e0610997b3ff1c15ac271188f4e5c7a9821b",
+      "bytes": 200,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/conditionalAccess.created.reportOnly.json",
+      "sha256": "20c848ca5c32f3f420573cd6c44ba878773d1c536c4ffb1239911fa8c306682e",
+      "bytes": 569,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/conditionalAccess.roleDefinitions.json",
+      "sha256": "b980c46955026520e8a3ef3604e300290f77a14eb37a4c2d63eba8b7f93b4e75",
+      "bytes": 433,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/configurationPolicy.created.json",
+      "sha256": "7b8c128953805e37375aeb7099fef959a992113e08c1c995ad79c444c08e34a3",
+      "bytes": 190,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/deviceConfiguration.created.json",
+      "sha256": "8a3301f59d91c017303433d6063bff4d4c4d822d0b397bdbd76a4ed5d18e9e57",
+      "bytes": 176,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/deviceRegistrationPolicy.current.json",
+      "sha256": "839a80ce43fdd0aa785c983d95ce62922e59c83907fef644f3b37a2d9106a681",
+      "bytes": 632,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/driverProfile.created.json",
+      "sha256": "c9ab29b03051004539e31cab0557388c21c157cfbb75303b28e53410821d4a08",
+      "bytes": 239,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/enrollment.assignments.empty.json",
+      "sha256": "ba6b28ef7d9e13314d4d21bc8fe249beb4f59c92238972d2921789389a2e0d31",
+      "bytes": 18,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/enrollment.restriction.created.json",
+      "sha256": "00eaa1ca933ac1ddec558f42face5aaada873b1d6982632ab53e1866dfa4c76e",
+      "bytes": 241,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/groups.created.json",
+      "sha256": "0756d26b8e5941fc7bdd81ea7d1d66a7f078c633952bae69174873d768a4099f",
+      "bytes": 316,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/groups.customerCollision.json",
+      "sha256": "0653b46aada5a2006cd2ece9afeefa3d5e1fd69548a47498fbeef6d334252d13",
+      "bytes": 332,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/namedLocation.created.json",
+      "sha256": "0a1457849f9d5ac2d0b291154312e6ff2a2e746474fd138d418bbc60439ac9ee",
+      "bytes": 293,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/pim.policyAssignment.json",
+      "sha256": "27675c036a7c85fe325c283f0f8bb47553041f0209ea8b94956e0760e8544628",
+      "bytes": 266,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/pim.policyRules.json",
+      "sha256": "0d80212573585c3ba766b47ed0cd0cd4fb72b0fc2eb93a41791e8f8e90d50b3c",
+      "bytes": 426,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/tenant.branding.default.json",
+      "sha256": "010484d668b841768674406b8b3a9183f2ed0bb684cc6a74f45b7e59801136ca",
+      "bytes": 337,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/updates.feature.created.json",
+      "sha256": "0b11d38ab9353204905146768ed1a0d5c91d1d06971ac622a7eb020386762786",
+      "bytes": 226,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Graph/updates.ring.created.json",
+      "sha256": "b6b3ff31256008476d507a8fed4846ded7a8ad41893782a62d24a3632c7ec2b9",
+      "bytes": 229,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Integration/DER-NoWriteEvidence.sample.json",
+      "sha256": "1feecc6a5353e10d63adea0f63ab9fed2a7ebe4f8c01651761dfe7de77315974",
+      "bytes": 4647,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Pilot/DER-PilotEvidence.sample.json",
+      "sha256": "f895c79e57409ec3e4568a50c6fec11ac20011fea7428ba9fc8d9f5225da1441",
+      "bytes": 2560,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/README.md",
+      "sha256": "a50fe27a61d317edb3ba6885024f5746dd7768884ebf7f3b96c38fb8ecda7efa",
+      "bytes": 753,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Fixtures/Release/DER-DevCertification.sample.json",
+      "sha256": "8fa221cc0431e2eae74ec931ed75bbd6f812aaf4e8b58ab797d06ff2e6a8d2ab",
+      "bytes": 1064,
+      "role": "Test"
+    },
+    {
+      "path": "Tests/Helpers/DER.TestHarness.psm1",
+      "sha256": "a674e23e24b8fca0a283c641420037a2707e4cd10bcad681797fac77b22529c7",
+      "bytes": 4980,
+      "role": "Test"
+    },
+    {
+      "path": "Tools/Invoke-DERDevCertification.ps1",
+      "sha256": "2825cc63b8e6ad40fee6c008b210acfdb5ec20940e06a602919ee3b51708d96d",
+      "bytes": 16672,
+      "role": "Tool"
+    },
+    {
+      "path": "Tools/Invoke-DERWindowsPreflight.ps1",
+      "sha256": "37c74a992fad3320fca46de6358a4cc980b75bceba8b96b947b8065d76907fd9",
+      "bytes": 16257,
+      "role": "Tool"
+    },
+    {
+      "path": "Tools/Invoke-DERWindowsSmokeTest.ps1",
+      "sha256": "e772bd53672e1a294e996ce88dc34953bc055d84d26d56126006b01b94b6d204",
+      "bytes": 19154,
+      "role": "Tool"
+    },
+    {
+      "path": "Tools/New-DERPackageManifest.ps1",
+      "sha256": "85d9cf9fb35632d9859b94de9b2a87373a0e9463039338356b6b61259a426de5",
+      "bytes": 5200,
+      "role": "Tool"
+    },
+    {
+      "path": "Tools/Protect-DERRelease.ps1",
+      "sha256": "7181b2c37780fec1ed624c5df5e4794d2a497bd3437f07273f0999f0d31a71fb",
+      "bytes": 4764,
+      "role": "Tool"
+    },
+    {
+      "path": "Tools/Test-DERPackage.ps1",
+      "sha256": "84d52d93c0f31b839b3cc912a7227f8cff2b8063140f5c0dd732bee9a9f0042c",
+      "bytes": 9880,
+      "role": "Tool"
+    },
+    {
+      "path": "Workloads/DER.ASR.psm1",
+      "sha256": "09438ef123ba93e6be50d7a47859a57c27f84a6dcffaae471761190ae78db16e",
+      "bytes": 22489,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Analytics.psm1",
+      "sha256": "f8f00cbd6be4560dfce191c17f5c2f23feb05835989bdbbd06682ae22fdc3e67",
+      "bytes": 13047,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.AppConsent.psm1",
+      "sha256": "d46d40146d47e758998d56ceddf25caf54e17d6422e224eee8260a4f225e34a9",
+      "bytes": 13149,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.AuthenticationMethods.psm1",
+      "sha256": "6373413eb862314e33390b11ed2cb200a21a27a3312ccf2ee183b1faff70536b",
+      "bytes": 17497,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Autopilot.psm1",
+      "sha256": "d8a1ceaf942745c07cf892e36e580b6482360232bea2422dcf8b9f879f458342",
+      "bytes": 25157,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.BitLocker.psm1",
+      "sha256": "306e76c272729a4a01c0e8fb71816ddf2221f746edc060bce7b28cef9234a47a",
+      "bytes": 28766,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Compliance.psm1",
+      "sha256": "ccdcc2dbfbae6b152df02fcde8f6709a5d5116d9857b58a2306cb65ed6d85b5c",
+      "bytes": 17674,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.ConditionalAccess.psm1",
+      "sha256": "edbf826c2d88498f3a7e04de991f78091a79c7957f4021a3595a90641df692ab",
+      "bytes": 18701,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Configuration.psm1",
+      "sha256": "b48708e111012e8a00b88ad7b6c74275b77f59374777e99b5eb7f5a69e1c5d2e",
+      "bytes": 17217,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Defender.psm1",
+      "sha256": "e988782cd292f979b76f247c32056c724da1f6d3a07d0ac8b5fda3a741b46bc8",
+      "bytes": 22909,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.DeliveryOptimization.psm1",
+      "sha256": "5597df2be88c8fe56df334f1110d31ac757d0fc1f6b918da810bc4ca11de5c26",
+      "bytes": 13500,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Drivers.psm1",
+      "sha256": "2678d358af969b721e0222881882ef1f5bd2ee9c85b0f6e9fcc707ef3b214800",
+      "bytes": 13314,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Enrollment.psm1",
+      "sha256": "76857d2a225d7ea2f3c2c9026d6cb0ac51729b31b9460e04832850a9412e18d8",
+      "bytes": 24835,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.EntraDevice.psm1",
+      "sha256": "8d9fb427de2b632faeba75ae10c5f5c0914db1200c6e17c4457fce50061f7d27",
+      "bytes": 14784,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Firewall.psm1",
+      "sha256": "983ba957dfed1e392f20d6aa2e94d380ee49f1477e524f8592ad7322e518f075",
+      "bytes": 21603,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Groups.psm1",
+      "sha256": "0015e4ab5681313a35ed6aac2f94f98ef9a19ab181b706f46e1ebc25cc874aa2",
+      "bytes": 15544,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.GuestExternal.psm1",
+      "sha256": "2624c2ec9d791b0c60f8f07afed2cbde5ad5ec2c1b66a70596450f7910ff60e1",
+      "bytes": 12897,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.LAPS.psm1",
+      "sha256": "275eaa604ddca1e246cd65b5ed2c7236c477bf39092a6f6532dcb9490035b4b4",
+      "bytes": 33178,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.LoggingIntegration.psm1",
+      "sha256": "3a9a863ae164f894445a6d917e7d0fef515d8758a902725d5cf4e05e2c3e8675",
+      "bytes": 3638,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.NamedLocations.psm1",
+      "sha256": "0a31479f5605b0b49522130459cc66e09cdc25159988b32a4750a7910fbc7c94",
+      "bytes": 16630,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.OneDrive.psm1",
+      "sha256": "aa347b5c64afd934bdd8b13aee4892abbb7be22283fa6a81e5e1c73a9f93f683",
+      "bytes": 20757,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.PIM.psm1",
+      "sha256": "635e35c0b97804d0c4c2e7e9136bc913142e81da63f9604e30c575778a06c3e4",
+      "bytes": 20854,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.PasswordProtection.psm1",
+      "sha256": "0f496cf20628001ac726b07f21d52179ce3da47a9424365c06612784123ade9f",
+      "bytes": 3981,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.TenantSettings.psm1",
+      "sha256": "0a3acb14cd0e27ec1291faaf7870f4d4a965b28c704618add2a16eafea30142c",
+      "bytes": 19813,
+      "role": "Workload"
+    },
+    {
+      "path": "Workloads/DER.Updates.psm1",
+      "sha256": "6f33750852c3f13da6d5f30a7c73059ab32f5b927d0026b93c5031f7d0c13f3a",
+      "bytes": 20618,
+      "role": "Workload"
+    }
+  ]
+}

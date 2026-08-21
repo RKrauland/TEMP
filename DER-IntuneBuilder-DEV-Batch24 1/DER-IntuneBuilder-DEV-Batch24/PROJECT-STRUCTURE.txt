@@ -1,0 +1,150 @@
+DER Intune / Entra Environment Builder v1 - Source Tree
+=======================================================
+
+This file describes the current package layout and responsibility boundaries.
+Build numbers identify sealed package bytes; the product remains v1 until the
+project owner explicitly authorizes a version change.
+
+Start-DERIntuneBuilder.ps1                 Parent launcher/orchestrator, trust anchor, runtime gate owner
+
+Core\
+  DER.Logging.psm1                         Human/structured logging, redaction, ENGINE/ACTION provenance, correlation
+  DER.Graph.psm1                           Sole production Graph transport, retries, write guards/latches, response handling
+  DER.Authentication.psm1                  Discovery/write authentication, tenant confirmation, scope handling
+  DER.Discovery.psm1                       Tenant/licensing/configuration discovery
+  DER.Snapshot.psm1                        Raw + normalized pre/post snapshots and hashing
+  DER.Analysis.psm1                        Existing-tenant hygiene/conflict analysis
+  DER.State.psm1                           Ownership authority, transaction journal, build recipe, portable state, tenant mutex
+  DER.Questionnaire.psm1                   Discovery-driven engineer questionnaire and noninteractive validation
+  DER.Planner.psm1                         Dependency graph and deterministic build plan
+  DER.Adoption.psm1                        Explicit compare/acknowledge/adopt ownership workflow
+  DER.Permissions.psm1                     Minimum discovery/write scope calculation and authorization
+  DER.DryRun.psm1                          Preflight validation, naming checks, and final build approval
+  DER.IntegrationTest.psm1                 Disposable-tenant zero-write evidence engine
+  DER.Canary.psm1                          Controlled one-object Graph mutation/read-back/cleanup harness
+  DER.Pilot.psm1                           Real Groups workload + exact rollback/purge pilot harness
+  DER.Validation.psm1                      Existing-object and post-write Microsoft read-back validation
+  DER.Rollback.psm1                        Central DER-owned/adopted rollback engine
+  DER.Recovery.psm1                        Interrupted-run evidence analysis, no-replay recovery decisions
+  DER.Reporting.psm1                       Reports, diagnostics, manual-action enrichment, engineer handoff
+
+Workloads\
+  DER.Groups.psm1                          Core/pilot/production/exclusion/dynamic groups
+  DER.EntraDevice.psm1                     Entra device registration/local-admin tenant settings
+  DER.Enrollment.psm1                      MDM scope, enrollment restrictions, notifications, cleanup
+  DER.Autopilot.psm1                       Windows Autopilot profiles, ESP, group tags, assignments
+  DER.Compliance.psm1                      Windows compliance baseline
+  DER.BitLocker.psm1                       Endpoint Security disk-encryption policy
+  DER.LAPS.psm1                            Windows LAPS policy + shared tenant-switch handling
+  DER.Defender.psm1                        Defender AV and tamper-protection policy
+  DER.ASR.psm1                             Attack Surface Reduction / Network Protection / CFA policy
+  DER.Firewall.psm1                        Windows Defender Firewall policy
+  DER.Configuration.psm1                   WHfB, lock, consumer controls, VBS/CG, SMB posture
+  DER.AuthenticationMethods.psm1           Authenticator, FIDO2/passkeys, TAP, OATH methods policy
+  DER.ConditionalAccess.psm1               DER Conditional Access baseline; Report-only by contract
+  DER.NamedLocations.psm1                  Site/VPN public-IP named locations
+  DER.GuestExternal.psm1                   Guest/external/cross-tenant controls
+  DER.AppConsent.psm1                      App-consent and admin-consent policy
+  DER.PasswordProtection.psm1              Password-protection review/configuration
+  DER.PIM.psm1                             PIM rule management where licensed/selected
+  DER.Updates.psm1                         Update-ring and feature-update policy
+  DER.Drivers.psm1                         Driver/firmware update policy
+  DER.OneDrive.psm1                        Silent sign-in, KFM, Files On-Demand, sync health
+  DER.DeliveryOptimization.psm1            Branch/site-aware Delivery Optimization
+  DER.TenantSettings.psm1                  Support/branding/T&C and selected tenant switches
+  DER.Analytics.psm1                       Endpoint Analytics/update-readiness configuration
+  DER.LoggingIntegration.psm1              Existing Log Analytics/SIEM diagnostic integration
+
+Definitions\
+  Baselines\1.0.0\                         Immutable DER v1 baseline contract
+    DER-Baseline.json                      Standard defaults and safety invariants
+    DER-Baseline.index.json                Static definitions + generated DER-ID family rules
+    DER-Baseline.manifest.json             Immutable-baseline SHA-256 manifest
+  Compatibility\
+    DER-CompatibilityCatalog.json          Graph v1/beta compatibility and Safe Preview allowlist
+  Adoption\
+    DER-AdoptionCatalog.json               Adoptable-object routes and comparison contract
+  Recovery\
+    DER-RecoveryPolicy.json                Crash/recovery/no-replay contract
+  Package\
+    DER-PackageManifest.json               Parent-pinned protected-file SHA-256/length contract
+    DER-UpdateManifest.json                Build/runtime metadata; no self-update execution
+    DER-DependencyLock.json                Pinned dependency identity/acquisition/integrity contract
+    DER-SigningPolicy.json                 Development vs signed Release trust policy
+  Integration\
+    DER-TestTenantIntegrationPolicy.json   Disposable-tenant zero-write policy
+  Canary\
+    DER-CanaryPolicy.json                  Controlled canary mutation boundary
+  Pilot\
+    DER-PilotPolicy.json                   End-to-end Groups workload pilot boundary
+  Release\
+    DER-DevFreezePolicy.json               v1 feature-freeze and release-gate contract
+  Validation\
+    DER-WindowsValidationPolicy.json       Windows parser/import/analyzer/Pester gate contract
+    DER-SchemaBindings.json                Static JSON document-to-schema bindings
+  Portal\
+    DER-PortalPathCatalog.json             Microsoft portal guidance for MAN-ID actions
+  Schema\                              22 JSON schemas for persisted/package/evidence contracts
+
+Templates\Reports\
+  DER-ReportTemplates.json                 Report/checklist/handoff presentation contract
+
+Tests\                                      17 Pester suites; execution requires supported PowerShell/Pester
+  DER.Adoption.Tests.ps1                   Adoption ownership/no-write safety
+  DER.Canary.Tests.ps1                     Canary mutation/prerequisite/evidence boundary
+  DER.Core.Tests.ps1                       Core baseline/package/helper contracts
+  DER.Fixtures.Tests.ps1                   Sanitized fixture coverage and metadata
+  DER.Integration.Tests.ps1                Disposable-tenant zero-write contract
+  DER.Logging.Tests.ps1                    ENGINE/ACTION provenance, incidents, redaction, log routing
+  DER.Package.Tests.ps1                    Trust-anchor/dependency/signing package contract
+  DER.Pilot.Tests.ps1                      Real-workload pilot/rollback contract
+  DER.Recovery.Tests.ps1                   Recovery chronology/journal/no-replay behavior
+  DER.Release.Tests.ps1                    v1 freeze/certification contract
+  DER.Reporting.Tests.ps1                  Reporting/manual-action completeness
+  DER.Safety.Tests.ps1                     Hard Graph/ownership/enforcement safety invariants
+  DER.Stabilization.Tests.ps1              Behavioral regressions for transport/state/rollback/recovery defects
+  DER.StateTransfer.Tests.ps1              Portable-state integrity/merge/replace/isolation
+  DER.WindowsValidation.Tests.ps1          Windows smoke/schema/analyzer/Pester gate contract
+  DER.WorkloadContracts.Tests.ps1          Workload payload/security-setting contracts
+  DER.WorkloadMocks.Tests.ps1              Representative mocked workload decisions
+  Helpers\
+    DER.TestHarness.psm1                   Synthetic/sanitized shared Pester helpers
+  Fixtures\
+    DER-GraphFixtureCatalog.json           25-workload Graph interaction fixture catalog
+    README.md                              Fixture sanitization contract
+    Graph\                                 Sanitized Microsoft Graph-like responses
+    Integration\                           Sanitized zero-write evidence sample
+    Canary\                                Sanitized canary evidence sample
+    Pilot\                                 Sanitized workload-pilot evidence sample
+    Release\                               Sanitized development-certification evidence sample
+
+Docs\
+  DEV-README.md                             Current v1 development/operating guide
+  ENGINEERING-NOTES.md                      Maintainer architecture/safety/authority notes
+  CONFIGURATION-REFERENCE.md                Current JSON/policy/evidence authority and safe-editing reference
+  LOGGING-REFERENCE.md                      Logging files, failure taxonomy, incident correlation, triage
+  WINDOWS-VALIDATION-RUNBOOK.md             Tenant-blind Windows preflight/smoke guide
+  TEST-TENANT-INTEGRATION-RUNBOOK.md        Disposable-tenant zero-write guide
+  CANARY-PILOT-RUNBOOK.md                   Controlled canary guide
+  WORKLOAD-PILOT-RUNBOOK.md                 Groups workload pilot/rollback guide
+  FINAL-OPERATOR-RUNBOOK.md                 Canonical Windows -> tenant -> recovery exercise gate order
+  RELEASE-CHECKLIST.md                      v1 development/release checklist
+  HANDOFF.md                                Current package handoff and validation boundary
+
+Tools\
+  New-DERPackageManifest.ps1                Generates manifest -> embedded trust anchor -> outer sums from frozen bytes
+  Test-DERPackage.ps1                       Standalone package/version/signature/integrity validator
+  Protect-DERRelease.ps1                    Signed Release packaging helper
+  Invoke-DERWindowsPreflight.ps1            Tenant-blind Windows/package/network readiness checks
+  Invoke-DERWindowsSmokeTest.ps1            Parser/schema/import/PSScriptAnalyzer/Pester smoke harness
+  Invoke-DERDevCertification.ps1            Local + evidence-chain Development certification
+
+Dependencies\                               Optional bundled pinned dependencies
+
+Runtime state is never stored beside the package. DER selects a writable local
+fixed-volume root, preferring C:\ProgramData\DER\IntuneBuilder and falling back
+to LOCALAPPDATA only when that fallback is also on a local fixed volume.
+
+Per-run evidence begins with DER-LogIndex.json and includes human, technical,
+engine timeline, action timeline, combined error, ENGINE error, ACTION error,
+Graph, validation, rollback, and PowerShell transcript streams. See Docs\LOGGING-REFERENCE.md for triage rules.

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.local/schema/DER-AdoptionCatalog.schema.json",
+  "title": "DER Adoption Catalog",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "catalogVersion",
+    "generatedForBaseline",
+    "semantics",
+    "entries"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "catalogVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generatedForBaseline": {
+      "type": "string",
+      "minLength": 1
+    },
+    "semantics": {
+      "type": "object",
+      "required": [
+        "matchRule",
+        "ownershipRule",
+        "tenantWriteDuringAdoption",
+        "assignmentsChangedDuringAdoption",
+        "partialComparisonRequiresExtraAcknowledgement"
+      ],
+      "properties": {
+        "matchRule": {
+          "type": "string"
+        },
+        "ownershipRule": {
+          "type": "string"
+        },
+        "tenantWriteDuringAdoption": {
+          "const": false
+        },
+        "assignmentsChangedDuringAdoption": {
+          "const": false
+        },
+        "partialComparisonRequiresExtraAcknowledgement": {
+          "const": true
+        }
+      },
+      "additionalProperties": true
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "module",
+          "objectTypes",
+          "apiVersion",
+          "collectionUri",
+          "itemUriTemplate",
+          "nameProperty",
+          "comparisonProfile",
+          "comparisonScope"
+        ],
+        "properties": {
+          "module": {
+            "type": "string",
+            "minLength": 1
+          },
+          "objectTypes": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "apiVersion": {
+            "enum": [
+              "v1.0",
+              "beta"
+            ]
+          },
+          "collectionUri": {
+            "type": "string",
+            "minLength": 1
+          },
+          "itemUriTemplate": {
+            "type": "string",
+            "pattern": "\\{id\\}"
+          },
+          "nameProperty": {
+            "enum": [
+              "displayName",
+              "name"
+            ]
+          },
+          "comparisonProfile": {
+            "type": "string",
+            "minLength": 1
+          },
+          "comparisonScope": {
+            "enum": [
+              "ConfigurationBody",
+              "IdentityAndTopLevel"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

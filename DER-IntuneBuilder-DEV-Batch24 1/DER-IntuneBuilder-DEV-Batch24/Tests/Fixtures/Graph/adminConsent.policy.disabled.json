@@ -1,0 +1,7 @@
+{
+  "isEnabled": false,
+  "notifyReviewers": false,
+  "remindersEnabled": false,
+  "requestDurationInDays": 30,
+  "reviewers": []
+}

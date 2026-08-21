@@ -1,0 +1,25 @@
+{
+  "userDeviceQuota": 50,
+  "multiFactorAuthConfiguration": "notRequired",
+  "azureADRegistration": {
+    "isAdminConfigurable": false,
+    "allowedToRegister": {
+      "@odata.type": "#microsoft.graph.allDeviceRegistrationMembership"
+    }
+  },
+  "azureADJoin": {
+    "isAdminConfigurable": true,
+    "allowedToJoin": {
+      "@odata.type": "#microsoft.graph.allDeviceRegistrationMembership"
+    },
+    "localAdmins": {
+      "enableGlobalAdmins": true,
+      "registeringUsers": {
+        "@odata.type": "#microsoft.graph.allDeviceRegistrationMembership"
+      }
+    }
+  },
+  "localAdminPassword": {
+    "isEnabled": false
+  }
+}

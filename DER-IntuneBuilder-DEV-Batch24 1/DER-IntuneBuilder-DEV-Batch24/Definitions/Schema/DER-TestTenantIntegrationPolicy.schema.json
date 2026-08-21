@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.example.invalid/schema/DER-TestTenantIntegrationPolicy.schema.json",
+  "title": "DER Test-Tenant Integration Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "generatedForPackage",
+    "generatedForBuild",
+    "purpose",
+    "tenantSafety",
+    "workflow",
+    "graphSafety",
+    "authentication",
+    "evidence"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "policyVersion": {
+      "const": "1.0.0"
+    },
+    "generatedForPackage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generatedForBuild": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 20
+    },
+    "tenantSafety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "disposableTestTenantRequired",
+        "productionTenantAllowed",
+        "operatorConfirmationToken",
+        "tenantIdentityMustMatchDiscoverySession"
+      ],
+      "properties": {
+        "disposableTestTenantRequired": {
+          "const": true
+        },
+        "productionTenantAllowed": {
+          "const": false
+        },
+        "operatorConfirmationToken": {
+          "const": "TEST-TENANT"
+        },
+        "tenantIdentityMustMatchDiscoverySession": {
+          "const": true
+        }
+      }
+    },
+    "workflow": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "allowedStages",
+        "prohibitedStages"
+      ],
+      "properties": {
+        "allowedStages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "prohibitedStages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "WriteAuthentication",
+              "Adoption",
+              "Workloads",
+              "PostBuildValidation"
+            ]
+          }
+        }
+      }
+    },
+    "graphSafety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "writeGuardMode",
+        "allowedTransportMethods",
+        "mutationMethods",
+        "centralTransport",
+        "transportCommand",
+        "transportMutationCountMustEqual",
+        "blockedMutationAttemptCountMustEqual",
+        "directTransportBypassCountMustEqual"
+      ],
+      "properties": {
+        "writeGuardMode": {
+          "const": "DenyAll"
+        },
+        "allowedTransportMethods": {
+          "type": "array",
+          "const": [
+            "GET"
+          ]
+        },
+        "mutationMethods": {
+          "type": "array",
+          "const": [
+            "POST",
+            "PATCH",
+            "PUT",
+            "DELETE"
+          ]
+        },
+        "centralTransport": {
+          "const": "Core/DER.Graph.psm1"
+        },
+        "transportCommand": {
+          "const": "Invoke-MgGraphRequest"
+        },
+        "transportMutationCountMustEqual": {
+          "const": 0
+        },
+        "blockedMutationAttemptCountMustEqual": {
+          "const": 0
+        },
+        "directTransportBypassCountMustEqual": {
+          "const": 0
+        }
+      }
+    },
+    "authentication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "requiredSessionType",
+        "writeSessionAllowed",
+        "writeLikeScopeRegex"
+      ],
+      "properties": {
+        "requiredSessionType": {
+          "const": "Discovery"
+        },
+        "writeSessionAllowed": {
+          "const": false
+        },
+        "writeLikeScopeRegex": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "jsonFile",
+        "htmlFile",
+        "checksCsvFile",
+        "requiredChecks",
+        "requiredSupportingHashes",
+        "requiredSupportingArtifacts"
+      ],
+      "properties": {
+        "schema": {
+          "const": "Definitions/Schema/DER-NoWriteEvidence.schema.json"
+        },
+        "jsonFile": {
+          "const": "DER-NoWriteEvidence.json"
+        },
+        "htmlFile": {
+          "const": "DER-NoWriteEvidence.html"
+        },
+        "checksCsvFile": {
+          "const": "DER-NoWriteChecks.csv"
+        },
+        "requiredChecks": {
+          "type": "array",
+          "minItems": 12,
+          "uniqueItems": true,
+          "items": {
+            "pattern": "^INT-[0-9]{3}$"
+          }
+        },
+        "requiredSupportingHashes": {
+          "type": "array",
+          "minItems": 3,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "requiredSupportingArtifacts": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0",
+  "policyVersion": "1.0.0",
+  "generatedForPackage": "1.0.0-dev",
+  "generatedForBuild": 24,
+  "purpose": "Disposable test-tenant integration run proving DER can complete discovery, analysis, questionnaire, planning, permission calculation and dry run while making Microsoft Graph mutations physically unreachable.",
+  "tenantSafety": {
+    "disposableTestTenantRequired": true,
+    "productionTenantAllowed": false,
+    "operatorConfirmationToken": "TEST-TENANT",
+    "tenantIdentityMustMatchDiscoverySession": true
+  },
+  "workflow": {
+    "allowedStages": [
+      "DiscoveryAuthentication",
+      "Discovery",
+      "Snapshot",
+      "Analysis",
+      "StateInitialization",
+      "Questionnaire",
+      "Plan",
+      "PermissionCalculation",
+      "DryRun",
+      "Evidence"
+    ],
+    "prohibitedStages": [
+      "WriteAuthentication",
+      "Adoption",
+      "Workloads",
+      "PostBuildValidation"
+    ]
+  },
+  "graphSafety": {
+    "writeGuardMode": "DenyAll",
+    "allowedTransportMethods": [
+      "GET"
+    ],
+    "mutationMethods": [
+      "POST",
+      "PATCH",
+      "PUT",
+      "DELETE"
+    ],
+    "centralTransport": "Core/DER.Graph.psm1",
+    "transportCommand": "Invoke-MgGraphRequest",
+    "transportMutationCountMustEqual": 0,
+    "blockedMutationAttemptCountMustEqual": 0,
+    "directTransportBypassCountMustEqual": 0
+  },
+  "authentication": {
+    "requiredSessionType": "Discovery",
+    "writeSessionAllowed": false,
+    "writeLikeScopeRegex": "(?i)ReadWrite|\\.Write\\."
+  },
+  "evidence": {
+    "schema": "Definitions/Schema/DER-NoWriteEvidence.schema.json",
+    "jsonFile": "DER-NoWriteEvidence.json",
+    "htmlFile": "DER-NoWriteEvidence.html",
+    "checksCsvFile": "DER-NoWriteChecks.csv",
+    "requiredChecks": [
+      "INT-000",
+      "INT-001",
+      "INT-002",
+      "INT-003",
+      "INT-004",
+      "INT-005",
+      "INT-006",
+      "INT-007",
+      "INT-008",
+      "INT-009",
+      "INT-010",
+      "INT-011"
+    ],
+    "requiredSupportingHashes": [
+      "packageManifestSHA256",
+      "graphLogSHA256",
+      "technicalLogSHA256"
+    ],
+    "requiredSupportingArtifacts": [
+      "graphLogSnapshot",
+      "technicalLogSnapshot"
+    ]
+  }
+}

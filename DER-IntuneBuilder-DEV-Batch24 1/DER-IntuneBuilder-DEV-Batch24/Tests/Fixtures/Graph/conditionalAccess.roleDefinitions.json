@@ -1,0 +1,19 @@
+{
+  "value": [
+    {
+      "id": "00000000-0000-4000-8000-000000000201",
+      "displayName": "Global Administrator",
+      "isBuiltIn": true
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000202",
+      "displayName": "Privileged Role Administrator",
+      "isBuiltIn": true
+    },
+    {
+      "id": "00000000-0000-4000-8000-000000000203",
+      "displayName": "Security Administrator",
+      "isBuiltIn": true
+    }
+  ]
+}

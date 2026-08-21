@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.example.invalid/schema/DER-WindowsValidationPolicy.schema.json",
+  "title": "DER Windows Validation Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "generatedForPackage",
+    "generatedForBuild",
+    "platform",
+    "runtime",
+    "requiredCommands",
+    "endpoints",
+    "safety",
+    "smokeTest"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "policyVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generatedForPackage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generatedForBuild": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "platform": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "os",
+        "architectures",
+        "minimumPowerShell",
+        "preferredPowerShell",
+        "requiredPSEdition",
+        "allowedLanguageModes",
+        "minimumFreeDiskMB"
+      ],
+      "properties": {
+        "os": {
+          "const": "Windows"
+        },
+        "architectures": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "X64",
+              "Arm64"
+            ]
+          }
+        },
+        "minimumPowerShell": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "preferredPowerShell": {
+          "type": "string",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$"
+        },
+        "requiredPSEdition": {
+          "const": "Core"
+        },
+        "allowedLanguageModes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "minimumFreeDiskMB": {
+          "type": "integer",
+          "minimum": 128
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "preferredRoot",
+        "fallbackRoot",
+        "requiredSubdirectories"
+      ],
+      "properties": {
+        "preferredRoot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fallbackRoot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "requiredSubdirectories": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "requiredCommands": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "endpoints": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "checkType",
+          "required",
+          "purpose"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z][A-Za-z0-9]+$"
+          },
+          "checkType": {
+            "enum": [
+              "Https",
+              "Tls"
+            ]
+          },
+          "uri": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "host": {
+            "type": "string",
+            "minLength": 1
+          },
+          "port": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 65535
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "checkType": {
+                  "const": "Https"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "uri"
+              ]
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "checkType": {
+                  "const": "Tls"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "host",
+                "port"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "safety": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tenantBlind",
+        "graphAuthenticationAllowed",
+        "graphRequestsAllowed",
+        "tenantMutationAllowed",
+        "preflightMustCompleteBeforeGraphDependencyLoad",
+        "preflightMustCompleteBeforeGraphAuthentication"
+      ],
+      "properties": {
+        "tenantBlind": {
+          "const": true
+        },
+        "graphAuthenticationAllowed": {
+          "const": false
+        },
+        "graphRequestsAllowed": {
+          "const": false
+        },
+        "tenantMutationAllowed": {
+          "const": false
+        },
+        "preflightMustCompleteBeforeGraphDependencyLoad": {
+          "const": true
+        },
+        "preflightMustCompleteBeforeGraphAuthentication": {
+          "const": true
+        }
+      }
+    },
+    "smokeTest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "pester",
+        "psScriptAnalyzer",
+        "requiredStages",
+        "resultFormats"
+      ],
+      "properties": {
+        "pester": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "majorVersion",
+            "minimumVersion",
+            "preferredVersion",
+            "allowPester6",
+            "isolatedRuntimeCache"
+          ],
+          "properties": {
+            "majorVersion": {
+              "const": 5
+            },
+            "minimumVersion": {
+              "type": "string",
+              "pattern": "^5\\.\\d+\\.\\d+$"
+            },
+            "preferredVersion": {
+              "type": "string",
+              "pattern": "^5\\.\\d+\\.\\d+$"
+            },
+            "allowPester6": {
+              "const": false
+            },
+            "isolatedRuntimeCache": {
+              "const": true
+            }
+          }
+        },
+        "requiredStages": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "Preflight",
+              "PackageIntegrity",
+              "PowerShellParse",
+              "JsonParse",
+              "JsonSchema",
+              "ModuleImport",
+              "PSScriptAnalyzer",
+              "Pester"
+            ]
+          }
+        },
+        "resultFormats": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "JSON",
+              "NUnitXml"
+            ]
+          }
+        },
+        "psScriptAnalyzer": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "minimumVersion",
+            "preferredVersion",
+            "isolatedRuntimeCache",
+            "failOnSeverity"
+          ],
+          "properties": {
+            "minimumVersion": {
+              "type": "string",
+              "pattern": "^\\d+\\.\\d+\\.\\d+$"
+            },
+            "preferredVersion": {
+              "type": "string",
+              "pattern": "^\\d+\\.\\d+\\.\\d+$"
+            },
+            "isolatedRuntimeCache": {
+              "const": true
+            },
+            "failOnSeverity": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": {
+                "enum": [
+                  "Error",
+                  "Warning",
+                  "Information"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

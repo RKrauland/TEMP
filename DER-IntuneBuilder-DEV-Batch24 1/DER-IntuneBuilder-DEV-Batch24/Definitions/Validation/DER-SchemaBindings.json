@@ -1,0 +1,158 @@
+{
+  "schemaVersion": "1.0",
+  "generatedForPackage": "1.0.0-dev",
+  "generatedForBuild": 24,
+  "bindings": [
+    {
+      "id": "BaselineDefinitions",
+      "schema": "Definitions/Schema/DER-Definition.schema.json",
+      "documents": [
+        "Definitions/Baselines/1.0.0/DER-Baseline.json",
+        "Definitions/Baselines/1.0.0/DER-Baseline.index.json"
+      ]
+    },
+    {
+      "id": "PortalPaths",
+      "schema": "Definitions/Schema/DER-PortalPathCatalog.schema.json",
+      "documents": [
+        "Definitions/Portal/DER-PortalPathCatalog.json"
+      ]
+    },
+    {
+      "id": "ReportTemplates",
+      "schema": "Definitions/Schema/DER-ReportTemplates.schema.json",
+      "documents": [
+        "Templates/Reports/DER-ReportTemplates.json"
+      ]
+    },
+    {
+      "id": "GraphFixtureCatalog",
+      "schema": "Definitions/Schema/DER-TestFixtureCatalog.schema.json",
+      "documents": [
+        "Tests/Fixtures/DER-GraphFixtureCatalog.json"
+      ]
+    },
+    {
+      "id": "AdoptionCatalog",
+      "schema": "Definitions/Schema/DER-AdoptionCatalog.schema.json",
+      "documents": [
+        "Definitions/Adoption/DER-AdoptionCatalog.json"
+      ]
+    },
+    {
+      "id": "RecoveryPolicy",
+      "schema": "Definitions/Schema/DER-RecoveryPolicy.schema.json",
+      "documents": [
+        "Definitions/Recovery/DER-RecoveryPolicy.json"
+      ]
+    },
+    {
+      "id": "PackageManifest",
+      "schema": "Definitions/Schema/DER-PackageManifest.schema.json",
+      "documents": [
+        "Definitions/Package/DER-PackageManifest.json"
+      ]
+    },
+    {
+      "id": "UpdateManifest",
+      "schema": "Definitions/Schema/DER-UpdateManifest.schema.json",
+      "documents": [
+        "Definitions/Package/DER-UpdateManifest.json"
+      ]
+    },
+    {
+      "id": "DependencyLock",
+      "schema": "Definitions/Schema/DER-DependencyLock.schema.json",
+      "documents": [
+        "Definitions/Package/DER-DependencyLock.json"
+      ]
+    },
+    {
+      "id": "SigningPolicy",
+      "schema": "Definitions/Schema/DER-SigningPolicy.schema.json",
+      "documents": [
+        "Definitions/Package/DER-SigningPolicy.json"
+      ]
+    },
+    {
+      "id": "WindowsValidationPolicy",
+      "schema": "Definitions/Schema/DER-WindowsValidationPolicy.schema.json",
+      "documents": [
+        "Definitions/Validation/DER-WindowsValidationPolicy.json"
+      ]
+    },
+    {
+      "id": "SchemaBindings",
+      "schema": "Definitions/Schema/DER-SchemaBindings.schema.json",
+      "documents": [
+        "Definitions/Validation/DER-SchemaBindings.json"
+      ]
+    },
+    {
+      "id": "TestTenantIntegrationPolicy",
+      "schema": "Definitions/Schema/DER-TestTenantIntegrationPolicy.schema.json",
+      "documents": [
+        "Definitions/Integration/DER-TestTenantIntegrationPolicy.json"
+      ]
+    },
+    {
+      "id": "NoWriteEvidenceSample",
+      "schema": "Definitions/Schema/DER-NoWriteEvidence.schema.json",
+      "documents": [
+        "Tests/Fixtures/Integration/DER-NoWriteEvidence.sample.json"
+      ]
+    },
+    {
+      "id": "CanaryPolicy",
+      "schema": "Definitions/Schema/DER-CanaryPolicy.schema.json",
+      "documents": [
+        "Definitions/Canary/DER-CanaryPolicy.json"
+      ]
+    },
+    {
+      "id": "CanaryEvidenceSample",
+      "schema": "Definitions/Schema/DER-CanaryEvidence.schema.json",
+      "documents": [
+        "Tests/Fixtures/Canary/DER-CanaryEvidence.sample.json"
+      ]
+    },
+    {
+      "id": "PilotPolicy",
+      "schema": "Definitions/Schema/DER-PilotPolicy.schema.json",
+      "documents": [
+        "Definitions/Pilot/DER-PilotPolicy.json"
+      ]
+    },
+    {
+      "id": "PilotEvidenceSample",
+      "schema": "Definitions/Schema/DER-PilotEvidence.schema.json",
+      "documents": [
+        "Tests/Fixtures/Pilot/DER-PilotEvidence.sample.json"
+      ]
+    },
+    {
+      "id": "DevFreezePolicy",
+      "schema": "Definitions/Schema/DER-DevFreezePolicy.schema.json",
+      "documents": [
+        "Definitions/Release/DER-DevFreezePolicy.json"
+      ]
+    },
+    {
+      "id": "DevCertificationSample",
+      "schema": "Definitions/Schema/DER-DevCertification.schema.json",
+      "documents": [
+        "Tests/Fixtures/Release/DER-DevCertification.sample.json"
+      ]
+    }
+  ],
+  "runtimeOnlySchemas": [
+    {
+      "schema": "Definitions/Schema/DER-PortableState.schema.json",
+      "validatedBy": "Tests/DER.StateTransfer.Tests.ps1"
+    },
+    {
+      "schema": "Definitions/Schema/DER-AdoptionDecisions.schema.json",
+      "validatedBy": "Tests/DER.Adoption.Tests.ps1"
+    }
+  ]
+}

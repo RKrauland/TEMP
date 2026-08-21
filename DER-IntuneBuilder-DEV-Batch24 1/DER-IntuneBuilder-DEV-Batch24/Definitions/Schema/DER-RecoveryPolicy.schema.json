@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.local/schema/DER-RecoveryPolicy.schema.json",
+  "title": "DER Recovery Policy",
+  "type": "object",
+  "required": ["schemaVersion", "policyVersion", "generatedForBaseline", "journalVersion", "semantics", "dispositions"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "policyVersion": { "type": "string", "minLength": 1 },
+    "generatedForBaseline": { "type": "string", "minLength": 1 },
+    "journalVersion": { "const": "1.1" },
+    "semantics": {
+      "type": "object",
+      "required": ["graphWriteReplayAllowed", "serializedRequestReplayAllowed", "freshDiscoveryRequired", "namesEstablishOwnership", "activePriorProcessBlocks", "invalidJournalBlocks", "uncertainWriteRequiresExplicitReconcile", "resumeMeaning"],
+      "properties": {
+        "graphWriteReplayAllowed": { "const": false },
+        "serializedRequestReplayAllowed": { "const": false },
+        "freshDiscoveryRequired": { "const": true },
+        "namesEstablishOwnership": { "const": false },
+        "activePriorProcessBlocks": { "const": true },
+        "invalidJournalBlocks": { "const": true },
+        "uncertainWriteRequiresExplicitReconcile": { "const": true },
+        "resumeMeaning": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "dispositions": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": ["name", "risk", "terminalPhases", "requiresExplicitReconcile", "behavior"],
+        "properties": {
+          "name": { "enum": ["PreserveCommitted", "PreserveRolledBack", "PreserveSkipped", "SafeToReplan", "ReconcileFailed", "ReconcileUncertainWrite", "ReconcileUncertainRollback", "JournalInvalid"] },
+          "risk": { "type": "string", "minLength": 1 },
+          "terminalPhases": { "type": "array", "items": { "enum": ["COMMIT", "ROLLBACK_VALIDATE", "SKIP", "FAIL"] } },
+          "requiresExplicitReconcile": { "type": "boolean" },
+          "behavior": { "type": "string", "minLength": 1 }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

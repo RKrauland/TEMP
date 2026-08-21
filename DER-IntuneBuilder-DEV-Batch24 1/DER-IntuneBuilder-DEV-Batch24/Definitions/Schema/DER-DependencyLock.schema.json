@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.example.invalid/schema/DER-DependencyLock.schema.json",
+  "title": "DER Dependency Lock",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "lockVersion",
+    "generatedForEngine",
+    "dependencies"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "lockVersion": {
+      "type": "string"
+    },
+    "generatedForEngine": {
+      "type": "string"
+    },
+    "dependencies": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "version",
+          "moduleGuid",
+          "repository",
+          "publisher",
+          "galleryOwner",
+          "requiredCommands",
+          "acquisition",
+          "runtimeIntegrity"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "moduleGuid": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "repository": {
+            "type": "string"
+          },
+          "publisher": {
+            "type": "string"
+          },
+          "galleryOwner": {
+            "type": "string"
+          },
+          "requiredCommands": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "uniqueItems": true
+          },
+          "acquisition": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "preferredCmdlet",
+              "authenticodeCheckRequired",
+              "saveModuleAllowed",
+              "isolatedRuntimeCache"
+            ],
+            "properties": {
+              "preferredCmdlet": {
+                "const": "Save-PSResource"
+              },
+              "authenticodeCheckRequired": {
+                "const": true
+              },
+              "saveModuleAllowed": {
+                "const": false
+              },
+              "isolatedRuntimeCache": {
+                "const": true
+              }
+            }
+          },
+          "runtimeIntegrity": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "manifestAuthenticodeRequired",
+              "manifestSignerSimpleName",
+              "contentLockRequired"
+            ],
+            "properties": {
+              "manifestAuthenticodeRequired": {
+                "const": true
+              },
+              "contentLockRequired": {
+                "const": true
+              },
+              "manifestSignerSimpleName": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

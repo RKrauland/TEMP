@@ -1,0 +1,130 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.example.invalid/schema/DER-DevCertification.schema.json",
+  "title": "DER Development Certification Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "evidenceType",
+    "packageVersion",
+    "buildNumber",
+    "checkedUtc",
+    "status",
+    "productionReady",
+    "packageManifestSHA256",
+    "localValidation",
+    "externalEvidence",
+    "gates"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "evidenceType": {
+      "const": "DER-Dev-Certification"
+    },
+    "packageVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "buildNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "checkedUtc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "status": {
+      "enum": [
+        "FAIL",
+        "LOCAL-PASS",
+        "FULL-PASS"
+      ]
+    },
+    "productionReady": {
+      "type": "boolean"
+    },
+    "packageManifestSHA256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "localValidation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package",
+        "smoke"
+      ],
+      "properties": {
+        "package": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        },
+        "smoke": {
+          "enum": [
+            "PASS",
+            "FAIL"
+          ]
+        }
+      }
+    },
+    "externalEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "provided",
+        "complete",
+        "tenantId"
+      ],
+      "properties": {
+        "provided": {
+          "type": "boolean"
+        },
+        "complete": {
+          "type": "boolean"
+        },
+        "tenantId": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        }
+      }
+    },
+    "gates": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "status",
+          "message"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "PASS",
+              "FAIL",
+              "NOT-PROVIDED"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

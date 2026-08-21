@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.example.invalid/schema/DER-CanaryEvidence.schema.json",
+  "title": "DER Controlled Canary Evidence",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "evidenceType",
+    "policyVersion",
+    "packageVersion",
+    "buildNumber",
+    "runId",
+    "tenantId",
+    "completedAt",
+    "passed",
+    "failures",
+    "cleanupComplete",
+    "prerequisite",
+    "operatorApproval",
+    "controlledObject",
+    "graphDelta",
+    "authenticationDelta",
+    "steps"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "evidenceType": {
+      "const": "DER-Canary-Pilot"
+    },
+    "policyVersion": {
+      "const": "1.0.0"
+    },
+    "packageVersion": {
+      "type": "string",
+      "minLength": 1
+    },
+    "buildNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "runId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "tenantId": {
+      "type": "string",
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+    },
+    "tenantName": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "completedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "failures": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cleanupComplete": {
+      "type": "boolean"
+    },
+    "prerequisite": {
+      "type": "object"
+    },
+    "operatorApproval": {
+      "type": "object"
+    },
+    "controlledObject": {
+      "type": "object",
+      "required": [
+        "derId",
+        "objectId",
+        "displayName",
+        "objectType",
+        "ownershipClass",
+        "activeObjectRemaining",
+        "deletedObjectRemaining"
+      ],
+      "properties": {
+        "derId": {
+          "const": "CANARY-SECURITY-GROUP"
+        },
+        "objectId": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "displayName": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "mailNickname": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "objectType": {
+          "const": "microsoft.graph.group"
+        },
+        "ownershipClass": {
+          "const": "DER-Owned"
+        },
+        "activeObjectRemaining": {
+          "type": "boolean"
+        },
+        "deletedObjectRemaining": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "graphDelta": {
+      "type": "object",
+      "required": [
+        "transportWrites",
+        "post",
+        "patch",
+        "put",
+        "delete"
+      ],
+      "properties": {
+        "requestAttempts": {
+          "type": "integer"
+        },
+        "transportRequests": {
+          "type": "integer"
+        },
+        "transportReads": {
+          "type": "integer"
+        },
+        "transportWrites": {
+          "type": "integer"
+        },
+        "blockedWrites": {
+          "type": "integer"
+        },
+        "post": {
+          "type": "integer"
+        },
+        "patch": {
+          "type": "integer"
+        },
+        "put": {
+          "type": "integer"
+        },
+        "delete": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "authenticationDelta": {
+      "type": "object",
+      "required": [
+        "writeSessionAttempts",
+        "writeSessionsOpened"
+      ],
+      "properties": {
+        "writeSessionAttempts": {
+          "type": "integer"
+        },
+        "writeSessionsOpened": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

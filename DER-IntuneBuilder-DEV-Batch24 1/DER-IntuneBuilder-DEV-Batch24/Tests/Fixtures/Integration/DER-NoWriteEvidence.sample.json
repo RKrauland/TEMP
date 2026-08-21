@@ -1,0 +1,179 @@
+{
+  "schemaVersion": "1.0",
+  "evidenceType": "DER-TestTenant-NoWrite",
+  "policyVersion": "1.0.0",
+  "packageVersion": "1.0.0-dev",
+  "buildNumber": 24,
+  "runId": "20260820-011200-ABC123",
+  "tenantId": "11111111-1111-4111-8111-111111111111",
+  "tenantName": "DER Disposable Test Tenant",
+  "startedAt": "2026-08-20T05:12:00Z",
+  "completedAt": "2026-08-20T05:13:00Z",
+  "passed": true,
+  "failedChecks": [],
+  "workflow": [
+    "Discovery",
+    "StateInitialization",
+    "Snapshot",
+    "Analysis",
+    "Questionnaire",
+    "Plan",
+    "PermissionCalculation",
+    "DryRun",
+    "Evidence"
+  ],
+  "prohibitedStages": [
+    "WriteAuthentication",
+    "Adoption",
+    "Workloads",
+    "PostBuildValidation"
+  ],
+  "operatorAttestation": {
+    "Confirmed": true,
+    "TokenRequired": "TEST-TENANT",
+    "TenantId": "11111111-1111-4111-8111-111111111111",
+    "TenantName": "DER Disposable Test Tenant",
+    "Account": "engineer@example.invalid",
+    "ConfirmedAt": "2026-08-20T05:12:10Z"
+  },
+  "dryRun": {
+    "readyToBuild": true,
+    "blockingFailures": 0,
+    "warnings": 0,
+    "integrationNoWrite": true,
+    "finalApprovalGranted": false
+  },
+  "graphAudit": {
+    "RunId": "20260820-011200-ABC123",
+    "WriteGuardMode": "DenyAll",
+    "RequestAttemptCount": 25,
+    "TransportRequestCount": 25,
+    "TransportReadCount": 25,
+    "TransportWriteCount": 0,
+    "BlockedWriteCount": 0
+  },
+  "graphForensic": {
+    "path": "C:\\ProgramData\\DER\\IntuneBuilder\\Logs\\example\\DER-Graph.jsonl",
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "transportEventCount": 25,
+    "mutationTransportEventCount": 0,
+    "blockedWriteEventCount": 0,
+    "parseErrorCount": 0
+  },
+  "authentication": {
+    "sessionType": "Discovery",
+    "tenantId": "11111111-1111-4111-8111-111111111111",
+    "account": "engineer@example.invalid",
+    "grantedScopes": [
+      "Organization.Read.All",
+      "Policy.Read.All"
+    ],
+    "writeLikeGrantedScopes": [],
+    "writeSessionOpened": false,
+    "audit": {
+      "DiscoverySessionAttempts": 1,
+      "DiscoverySessionsOpened": 1,
+      "WriteSessionAttempts": 0,
+      "WriteSessionsOpened": 0,
+      "Disconnects": 0
+    }
+  },
+  "permissions": {
+    "calculatedPotentialWriteScopes": [
+      "Group.ReadWrite.All"
+    ],
+    "writeScopesAuthenticated": []
+  },
+  "sourceSafety": {
+    "centralGraphTransport": "Core/DER.Graph.psm1",
+    "bypassFindingCount": 0,
+    "bypassFindings": []
+  },
+  "transactionSafety": {
+    "journalEntryCount": 0,
+    "writeTransactionCount": 0
+  },
+  "checks": [
+    {
+      "Id": "INT-000",
+      "Status": "Pass",
+      "Message": "Disposable test tenant attested.",
+      "Data": null
+    },
+    {
+      "Id": "INT-001",
+      "Status": "Pass",
+      "Message": "Write guard active.",
+      "Data": null
+    },
+    {
+      "Id": "INT-002",
+      "Status": "Pass",
+      "Message": "Discovery session only.",
+      "Data": null
+    },
+    {
+      "Id": "INT-003",
+      "Status": "Pass",
+      "Message": "No write scopes granted.",
+      "Data": null
+    },
+    {
+      "Id": "INT-004",
+      "Status": "Pass",
+      "Message": "Dry run is no-write.",
+      "Data": null
+    },
+    {
+      "Id": "INT-005",
+      "Status": "Pass",
+      "Message": "Zero mutation transports.",
+      "Data": null
+    },
+    {
+      "Id": "INT-006",
+      "Status": "Pass",
+      "Message": "Zero blocked mutation attempts.",
+      "Data": null
+    },
+    {
+      "Id": "INT-007",
+      "Status": "Pass",
+      "Message": "Graph log confirms zero writes.",
+      "Data": null
+    },
+    {
+      "Id": "INT-008",
+      "Status": "Pass",
+      "Message": "No bypasses.",
+      "Data": null
+    },
+    {
+      "Id": "INT-009",
+      "Status": "Pass",
+      "Message": "No write transactions.",
+      "Data": null
+    },
+    {
+      "Id": "INT-010",
+      "Status": "Pass",
+      "Message": "Write permissions calculated only.",
+      "Data": null
+    },
+    {
+      "Id": "INT-011",
+      "Status": "Pass",
+      "Message": "Frozen supporting logs hashed.",
+      "Data": null
+    }
+  ],
+  "supportingHashes": {
+    "packageManifestSHA256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "graphLogSHA256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "technicalLogSHA256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "supportingArtifacts": {
+    "graphLogSnapshot": "C:\\ProgramData\\DER\\IntuneBuilder\\Evidence\\example\\DER-Graph.evidence.jsonl",
+    "technicalLogSnapshot": "C:\\ProgramData\\DER\\IntuneBuilder\\Evidence\\example\\DER-Technical.evidence.jsonl"
+  }
+}

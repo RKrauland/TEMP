@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "updateManifestVersion": "1.0.0",
+  "packageVersion": "1.0.0-dev",
+  "buildNumber": 24,
+  "channel": "Development",
+  "engineVersion": "1.0.0-dev",
+  "baselineVersion": "1.0.0",
+  "releaseDate": "2026-08-20",
+  "runtime": {
+    "minimumPowerShell": "7.4.0",
+    "bootstrapPowerShell": "7.6.4",
+    "platform": "Windows",
+    "bootstrapPowerShellMsiSHA256": "d11942df52fd12470169797abfa4781d9480efdc81000ba4fa55a5b921ed8dd0"
+  },
+  "dependencies": {
+    "lockVersion": "1.0.0",
+    "lockPath": "Definitions/Package/DER-DependencyLock.json"
+  },
+  "updatePolicy": {
+    "automaticCheck": false,
+    "automaticDownload": false,
+    "automaticExecute": false,
+    "policy": "DER development packages do not self-update. Compare signed/versioned package metadata out of band, validate the complete replacement package, then launch that package explicitly."
+  },
+  "compatibility": {
+    "definitionSchema": "1.0",
+    "portableState": "1.0",
+    "graphCompatibilityCatalog": "1.0.0",
+    "recoveryJournal": "1.1",
+    "testTenantIntegrationPolicy": "1.0.0",
+    "canaryPilotPolicy": "1.0.0",
+    "workloadPilotPolicy": "1.0.0",
+    "devFreezePolicy": "1.0.0"
+  }
+}

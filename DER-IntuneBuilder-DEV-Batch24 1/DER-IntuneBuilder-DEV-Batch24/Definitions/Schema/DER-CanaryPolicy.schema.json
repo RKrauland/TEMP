@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.example.invalid/schema/DER-CanaryPolicy.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "policyVersion",
+    "generatedForPackage",
+    "generatedForBuild",
+    "purpose",
+    "prerequisite",
+    "operator",
+    "graph",
+    "object",
+    "cleanup",
+    "evidence"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "policyVersion": {
+      "const": "1.0.0"
+    },
+    "generatedForPackage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generatedForBuild": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1
+    },
+    "prerequisite": {
+      "type": "object"
+    },
+    "operator": {
+      "type": "object",
+      "required": [
+        "confirmationToken",
+        "requiredRoles"
+      ],
+      "properties": {
+        "confirmationToken": {
+          "const": "CANARY-WRITE"
+        },
+        "requiredRoles": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "recommendation": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "graph": {
+      "type": "object",
+      "required": [
+        "apiVersion",
+        "requiredDelegatedScopes",
+        "controlledObjectCount",
+        "allowedMutationMethods",
+        "expectedMutationDelta",
+        "createUri",
+        "activeDeleteUriTemplate",
+        "deletedItemUriTemplate"
+      ],
+      "properties": {
+        "apiVersion": {
+          "const": "v1.0"
+        },
+        "requiredDelegatedScopes": {
+          "type": "array",
+          "contains": {
+            "const": "Group.ReadWrite.All"
+          }
+        },
+        "controlledObjectCount": {
+          "const": 1
+        },
+        "allowedMutationMethods": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "POST",
+              "DELETE"
+            ]
+          }
+        },
+        "expectedMutationDelta": {
+          "type": "object",
+          "properties": {
+            "POST": {
+              "const": 1
+            },
+            "PATCH": {
+              "const": 0
+            },
+            "PUT": {
+              "const": 0
+            },
+            "DELETE": {
+              "const": 2
+            }
+          },
+          "required": [
+            "POST",
+            "PATCH",
+            "PUT",
+            "DELETE"
+          ],
+          "additionalProperties": false
+        },
+        "createUri": {
+          "const": "groups"
+        },
+        "activeDeleteUriTemplate": {
+          "type": "string"
+        },
+        "deletedItemUriTemplate": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "object": {
+      "type": "object"
+    },
+    "cleanup": {
+      "type": "object"
+    },
+    "evidence": {
+      "type": "object"
+    }
+  }
+}

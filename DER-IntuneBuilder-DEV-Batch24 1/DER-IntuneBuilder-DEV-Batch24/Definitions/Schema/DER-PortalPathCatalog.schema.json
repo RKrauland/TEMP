@@ -1,0 +1,125 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.local/schemas/DER-PortalPathCatalog.schema.json",
+  "title": "DER Portal Path Catalog",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "catalogVersion",
+    "generatedForBaseline",
+    "verifiedDate",
+    "authority",
+    "entries"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "catalogVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "generatedForBaseline": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "verifiedDate": {
+      "type": "string",
+      "format": "date"
+    },
+    "authority": {
+      "const": "Microsoft Learn"
+    },
+    "policy": {
+      "type": "object"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "category",
+          "portal",
+          "portalUrl",
+          "minimumRole",
+          "clickPath",
+          "steps",
+          "verification",
+          "docs"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^MAN-[A-Z0-9-]+$"
+          },
+          "category": {
+            "type": "string",
+            "minLength": 1
+          },
+          "portal": {
+            "type": "string",
+            "minLength": 1
+          },
+          "portalUrl": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "minimumRole": {
+            "type": "string",
+            "minLength": 1
+          },
+          "clickPath": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "steps": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "verification": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "docs": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "title",
+                "url"
+              ],
+              "properties": {
+                "title": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "url": {
+                  "type": "string",
+                  "pattern": "^https://learn\\.microsoft\\.com/"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

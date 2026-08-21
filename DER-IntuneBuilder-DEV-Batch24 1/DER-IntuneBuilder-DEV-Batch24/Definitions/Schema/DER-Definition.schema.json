@@ -1,0 +1,189 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://der.local/schemas/DER-Definition.schema.json",
+  "title": "DER Baseline Definition Contract",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "baselineVersion",
+    "definitionType"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "1.0"
+    },
+    "baselineVersion": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "definitionType": {
+      "enum": [
+        "Baseline",
+        "BaselineIndex",
+        "DefinitionSet"
+      ]
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "immutable": {
+      "type": "boolean"
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/moduleDefinition"
+      }
+    },
+    "definitions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/objectDefinition"
+      }
+    },
+    "defaults": {
+      "type": "object"
+    },
+    "invariants": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "metadata": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": true,
+  "$defs": {
+    "moduleName": {
+      "enum": [
+        "Groups",
+        "EntraDevice",
+        "Enrollment",
+        "Autopilot",
+        "Compliance",
+        "BitLocker",
+        "LAPS",
+        "Defender",
+        "ASR",
+        "Firewall",
+        "Configuration",
+        "AuthenticationMethods",
+        "NamedLocations",
+        "ConditionalAccess",
+        "GuestExternal",
+        "AppConsent",
+        "PasswordProtection",
+        "PIM",
+        "Updates",
+        "Drivers",
+        "OneDrive",
+        "DeliveryOptimization",
+        "TenantSettings",
+        "Analytics",
+        "LoggingIntegration"
+      ]
+    },
+    "moduleDefinition": {
+      "type": "object",
+      "required": [
+        "name",
+        "enabledByDefault",
+        "risk"
+      ],
+      "properties": {
+        "name": {
+          "$ref": "#/$defs/moduleName"
+        },
+        "enabledByDefault": {
+          "type": "boolean"
+        },
+        "risk": {
+          "enum": [
+            "Low",
+            "Medium",
+            "High"
+          ]
+        },
+        "notes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "objectDefinition": {
+      "type": "object",
+      "required": [
+        "derId",
+        "module",
+        "objectType",
+        "action",
+        "safeState"
+      ],
+      "properties": {
+        "derId": {
+          "type": "string",
+          "pattern": "^DER-[A-Z0-9-]+$"
+        },
+        "module": {
+          "$ref": "#/$defs/moduleName"
+        },
+        "objectType": {
+          "type": "string",
+          "minLength": 1
+        },
+        "action": {
+          "enum": [
+            "Create",
+            "Configure",
+            "Manual"
+          ]
+        },
+        "safeState": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownershipOnCreate": {
+          "enum": [
+            "DER-Owned",
+            "DER-Adopted",
+            "Customer-Owned",
+            "Manual"
+          ]
+        },
+        "productionBehavior": {
+          "enum": [
+            "PilotOnly",
+            "EmptyProductionTarget",
+            "ReportOnly",
+            "NoAssignment",
+            "ExplicitApproval",
+            "ManualOnly"
+          ]
+        },
+        "compatibilityIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "defaults": {
+          "type": "object"
+        },
+        "invariants": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}

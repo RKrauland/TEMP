@@ -1,0 +1,12 @@
+{
+  "id": "microsoftAuthenticator",
+  "state": "enabled",
+  "includeTargets": [
+    {
+      "targetType": "group",
+      "id": "all_users",
+      "authenticationMode": "any"
+    }
+  ],
+  "excludeTargets": []
+}

@@ -1,0 +1,7 @@
+{
+  "@odata.type": "#microsoft.graph.windowsDriverUpdateProfile",
+  "id": "00000000-0000-4000-8000-000000000A01",
+  "displayName": "DER - WU - 030 - Driver Updates - Pilot",
+  "approvalType": "automatic",
+  "deploymentDeferralInDays": 3
+}
